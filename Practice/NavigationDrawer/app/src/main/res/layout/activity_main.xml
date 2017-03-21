@@ -19,12 +19,11 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:textSize="28sp"
-            android:layout_centerInParent="true"/>
+        <FrameLayout
+            android:layout_below="@id/toolbar"
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
 
     </RelativeLayout>
 
