@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SIH2k17</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="settings_fragment">Settings fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="account_fragment">Account fragment</string>
+</resources>
