@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SIH App</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- Navigation tabs -->
+    <string name="nav_home">Home</string>
+    <string name="nav_meetings">Meetings</string>
+    <string name="nav_funds">Funds</string>
+    <string name="nav_tasks">Tasks</string>
+    <string name="nav_school">School</string>
+    <string name="nav_contacts">Contacts</string>
+    <string name="nav_logout">Logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment_announcement">Recent Announcements</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+</resources>

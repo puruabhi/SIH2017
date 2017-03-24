@@ -1,36 +1,36 @@
-package com.example.abhisheikh.sih2k17;
+package com.example.abhisheikh.sihapp.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-
+import com.example.abhisheikh.sihapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AccountFragment.OnFragmentInteractionListener} interface
+ * {@link ContactsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AccountFragment#newInstance} factory method to
+ * Use the {@link ContactsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AccountFragment extends Fragment {
+public class ContactsFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    TextView accountTextView;
-    ListView accountListView;
 
-    public AccountFragment() {
+    public ContactsFragment() {
         // Required empty public constructor
     }
 
@@ -40,48 +40,32 @@ public class AccountFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AccountFragment.
+     * @return A new instance of fragment ContactsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AccountFragment newInstance() {
-        AccountFragment fragment = new AccountFragment();
+    public static ContactsFragment newInstance(String param1, String param2) {
+        ContactsFragment fragment = new ContactsFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_account, container, false);
-        accountTextView = (TextView) view.findViewById(R.id.accountTextView);
-        accountTextView.setText("Hello");
-
-        final ArrayList<Account> accounts = new ArrayList<>();
-        for(int i=0;i<10;i++){
-            accounts.add(new Account("Date "+(i+1),"Description "+(i+1)));
-        }
-
-        AccountAdapter adapter = new AccountAdapter(getActivity(),accounts);
-
-        accountListView = (ListView)view.findViewById(R.id.accountListView);
-
-        accountListView.setAdapter(adapter);
-
-        accountListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(),AccountPopUp.class);
-                intent.putExtra("date",accounts.get(position).getDate());
-                intent.putExtra("description",accounts.get(position).getDescription());
-                startActivity(intent);
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_contacts, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

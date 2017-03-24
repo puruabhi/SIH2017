@@ -1,11 +1,11 @@
-package com.example.abhisheikh.sih2k17;
+package com.example.abhisheikh.sihapp.fragment;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,24 +13,29 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.adapter.HomeAdapter;
+import com.example.abhisheikh.sihapp.other.Home;
+import com.example.abhisheikh.sihapp.pop.HomePop;
+
 import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AccountFragment.OnFragmentInteractionListener} interface
+ * {@link HomeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AccountFragment#newInstance} factory method to
+ * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AccountFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    TextView accountTextView;
-    ListView accountListView;
+    TextView homeTextView;
+    ListView homeListView;
 
-    public AccountFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -38,13 +43,11 @@ public class AccountFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AccountFragment.
+     * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AccountFragment newInstance() {
-        AccountFragment fragment = new AccountFragment();
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
         return fragment;
     }
 
@@ -57,30 +60,29 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_account, container, false);
-        accountTextView = (TextView) view.findViewById(R.id.accountTextView);
-        accountTextView.setText("Hello");
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        final ArrayList<Account> accounts = new ArrayList<>();
+        final ArrayList<Home> list = new ArrayList<>();
         for(int i=0;i<10;i++){
-            accounts.add(new Account("Date "+(i+1),"Description "+(i+1)));
+            list.add(new Home("Date "+(i+1),"Description "+(i+1)));
         }
 
-        AccountAdapter adapter = new AccountAdapter(getActivity(),accounts);
+        HomeAdapter adapter = new HomeAdapter(getActivity(),list);
 
-        accountListView = (ListView)view.findViewById(R.id.accountListView);
+        homeListView = (ListView)view.findViewById(R.id.homeListView);
 
-        accountListView.setAdapter(adapter);
+        homeListView.setAdapter(adapter);
 
-        accountListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(),AccountPopUp.class);
-                intent.putExtra("date",accounts.get(position).getDate());
-                intent.putExtra("description",accounts.get(position).getDescription());
+                Intent intent = new Intent(getContext(), HomePop.class);
+                intent.putExtra("date",list.get(position).getDate());
+                intent.putExtra("description",list.get(position).getDescription());
                 startActivity(intent);
             }
         });
+
         return view;
     }
 

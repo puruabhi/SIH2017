@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1" android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_home_black_24dp"
+            android:title="@string/nav_home"/>
+
+        <item android:id="@+id/nav_meetings"
+            android:icon="@mipmap/meeting"
+            android:title="@string/nav_meetings"/>
+
+        <item android:id="@+id/nav_funds"
+            android:icon="@mipmap/funds"
+            android:title="@string/nav_funds"/>
+
+        <item android:id="@+id/nav_tasks"
+            android:icon="@mipmap/tasks"
+            android:title="@string/nav_tasks"/>
+    </group>
+
+    <group android:id="@+id/group2" android:checkableBehavior="single">
+        <item android:id="@+id/nav_school"
+            android:icon="@mipmap/school"
+            android:title="@string/nav_school"/>
+
+        <item android:id="@+id/nav_contacts"
+            android:icon="@mipmap/contact"
+            android:title="@string/nav_contacts"/>
+
+        <item android:id="@+id/nav_logout"
+            android:icon="@mipmap/logout"
+            android:title="@string/nav_logout"/>
+    </group>
+
+</menu>
