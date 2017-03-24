@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pop.HomePop"
+        <activity
+            android:name=".pop.HomePop"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".pop.MeetingsPop"
             android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 

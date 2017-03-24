@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_background"
+    tools:context="com.example.abhisheikh.sihapp.pop.MeetingsPop">
+
+    <TextView
+        android:id="@+id/meetingsDatePopText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        tools:text="Date"/>
+
+    <View
+        android:id="@+id/stLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/holo_blue_light"
+        android:layout_below="@id/meetingsDatePopText"/>
+
+    <ScrollView
+        android:layout_below="@id/stLine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Development"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="0dp"/>
+            <TextView
+                android:id="@+id/meetingsDevelopmentPopText"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Development Data"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Decision"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="0dp"/>
+            <TextView
+                android:id="@+id/meetingsDecisionPopText"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Decision Data"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

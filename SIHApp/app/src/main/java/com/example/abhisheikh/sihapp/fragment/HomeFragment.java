@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         final ArrayList<Home> list = new ArrayList<>();
-        for(int i=0;i<10;i++){
+        for(int i=0;i<20;i++){
             list.add(new Home("Date "+(i+1),"Description "+(i+1)));
         }
 
