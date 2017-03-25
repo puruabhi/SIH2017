@@ -7,20 +7,29 @@
     android:background="@drawable/pop_background"
     tools:context="com.example.abhisheikh.sihapp.pop.MeetingsPop">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/meetingsPopToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        />
+
     <TextView
         android:id="@+id/meetingsDatePopText"
+        android:layout_below="@id/meetingsPopToolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:padding="16dp"
         tools:text="Date"/>
 
     <View
         android:id="@+id/stLine"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@android:color/holo_blue_light"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_below="@id/meetingsDatePopText"/>
 
     <ScrollView
@@ -36,12 +45,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Development"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="0dp"/>
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/meetingsDevelopmentPopText"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="0dp"
+                android:paddingLeft="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Development Data"/>
@@ -49,12 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Decision"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="0dp"/>
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/meetingsDecisionPopText"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="0dp"
+                android:paddingLeft="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Decision Data"/>

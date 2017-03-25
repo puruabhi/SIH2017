@@ -1,6 +1,5 @@
 package com.example.abhisheikh.sihapp.fragment;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -62,7 +61,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        final ArrayList<Home> list = new ArrayList<>();
+        ArrayList<Home> list = new ArrayList<>();
         for(int i=0;i<20;i++){
             list.add(new Home("Date "+(i+1),"Description "+(i+1)));
         }
@@ -76,9 +75,10 @@ public class HomeFragment extends Fragment {
         homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Home home = (Home)parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), HomePop.class);
-                intent.putExtra("date",list.get(position).getDate());
-                intent.putExtra("description",list.get(position).getDescription());
+                intent.putExtra("date",home.getDate());
+                intent.putExtra("description",home.getDescription());
                 startActivity(intent);
             }
         });

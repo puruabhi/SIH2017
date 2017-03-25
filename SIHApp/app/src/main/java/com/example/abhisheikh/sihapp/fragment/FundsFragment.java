@@ -1,14 +1,22 @@
 package com.example.abhisheikh.sihapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.adapter.FundsAdapter;
+import com.example.abhisheikh.sihapp.other.Fund;
+import com.example.abhisheikh.sihapp.pop.FundPop;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,15 +27,6 @@ import com.example.abhisheikh.sihapp.R;
  * create an instance of this fragment.
  */
 public class FundsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private OnFragmentInteractionListener mListener;
 
     public FundsFragment() {
@@ -46,8 +45,6 @@ public class FundsFragment extends Fragment {
     public static FundsFragment newInstance(String param1, String param2) {
         FundsFragment fragment = new FundsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,17 +52,34 @@ public class FundsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_funds, container, false);
+        View view = inflater.inflate(R.layout.fragment_funds, container, false);
+
+        ArrayList<Fund> funds= new ArrayList<>();
+        for(int i=0;i<20;i++){
+            funds.add(new Fund("January",1000*i,750*i,"used "+i));
+        }
+
+        FundsAdapter adapter = new FundsAdapter(getActivity(),funds);
+        ListView fundsListView = (ListView)view.findViewById(R.id.fundListView);
+        fundsListView.setAdapter(adapter);
+
+        fundsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fund fund = (Fund)parent.getItemAtPosition(position);
+                Intent intent = new Intent(getContext(), FundPop.class);
+                intent.putExtra("use",fund.getUsed());
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

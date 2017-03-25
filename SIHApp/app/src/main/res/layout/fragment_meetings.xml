@@ -7,8 +7,6 @@
     <ListView
         android:id="@+id/meetingsListView"
         android:layout_width="match_parent"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
         android:layout_height="match_parent"></ListView>
 
 </FrameLayout>

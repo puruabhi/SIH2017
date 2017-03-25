@@ -12,11 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.abhisheikh.sihapp.R;
-import com.example.abhisheikh.sihapp.adapter.HomeAdapter;
 import com.example.abhisheikh.sihapp.adapter.MeetingsAdapter;
-import com.example.abhisheikh.sihapp.other.Home;
 import com.example.abhisheikh.sihapp.other.Meeting;
-import com.example.abhisheikh.sihapp.pop.HomePop;
 import com.example.abhisheikh.sihapp.pop.MeetingsPop;
 
 import java.util.ArrayList;
@@ -63,7 +60,7 @@ public class MeetingsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_meetings, container, false);
 
-        final ArrayList<Meeting> list = new ArrayList<>();
+        ArrayList<Meeting> list = new ArrayList<>();
         for(int i=0;i<20;i++){
             list.add(new Meeting("Date "+(i+1),"Development Plan"+(i+1),"Description "+(i+1)));
         }
@@ -77,10 +74,11 @@ public class MeetingsFragment extends Fragment {
         meetingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Meeting meeting = (Meeting)parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), MeetingsPop.class);
-                intent.putExtra("date",list.get(position).getDate());
-                intent.putExtra("development",list.get(position).getDevelopementPlan());
-                intent.putExtra("decision",list.get(position).getDecision());
+                intent.putExtra("date",meeting.getDate());
+                intent.putExtra("development",meeting.getDevelopementPlan());
+                intent.putExtra("decision",meeting.getDecision());
                 startActivity(intent);
             }
         });

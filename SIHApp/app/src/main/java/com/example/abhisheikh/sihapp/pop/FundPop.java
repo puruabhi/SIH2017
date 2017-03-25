@@ -9,32 +9,26 @@ import android.widget.TextView;
 
 import com.example.abhisheikh.sihapp.R;
 
-public class HomePop extends AppCompatActivity {
-
-    TextView homeDatePopText,homeDescriptionPopText;
+public class FundPop extends AppCompatActivity {
+    TextView fundUseDescriptionPopText;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_pop);
+        setContentView(R.layout.activity_fund_pop);
         Intent intent = getIntent();
 
-        String date = intent.getStringExtra("date");
-        String description = intent.getStringExtra("description");
+        String use = intent.getStringExtra("use");
 
+        fundUseDescriptionPopText = (TextView)findViewById(R.id.fundUseDescriptionPopText);
 
+        fundUseDescriptionPopText.setText(use);
 
-        homeDatePopText = (TextView)findViewById(R.id.homeDatePopText);
-        homeDescriptionPopText = (TextView)findViewById(R.id.homeDescriptionPopText);
-
-        homeDatePopText.setText(date);
-        homeDescriptionPopText.setText(description);
-
-        toolbar = (Toolbar)findViewById(R.id.homePopToolbar);
+        toolbar = (Toolbar)findViewById(R.id.fundPopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Announcement");
+        setTitle("Usage");
     }
 
     @Override

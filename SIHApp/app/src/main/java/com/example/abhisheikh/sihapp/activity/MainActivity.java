@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout,new HomeFragment());
         fragmentTransaction.commit();
+        setTitle(R.string.nav_home);
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
