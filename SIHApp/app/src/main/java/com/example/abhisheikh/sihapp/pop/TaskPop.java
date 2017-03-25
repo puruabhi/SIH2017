@@ -9,30 +9,27 @@ import android.widget.TextView;
 
 import com.example.abhisheikh.sihapp.R;
 
-public class HomePop extends AppCompatActivity {
-
-    TextView homeDatePopText,homeDescriptionPopText;
-    Toolbar toolbar;
+public class TaskPop extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_pop);
+        setContentView(R.layout.activity_task_pop);
         Intent intent = getIntent();
 
-        String date = intent.getStringExtra("date");
-        String description = intent.getStringExtra("description");
+        String name = intent.getStringExtra("name");
+        String detail = intent.getStringExtra("detail");
 
-        homeDatePopText = (TextView)findViewById(R.id.homeDatePopText);
-        homeDescriptionPopText = (TextView)findViewById(R.id.homeDescriptionPopText);
+        TextView taskNameTextView = (TextView)findViewById(R.id.taskNameTextView);
+        TextView taskDetailTextView = (TextView)findViewById(R.id.taskDetailTextView);
 
-        homeDatePopText.setText(date);
-        homeDescriptionPopText.setText(description);
+        taskNameTextView.setText(name);
+        taskDetailTextView.setText(detail + "a\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\na");
 
-        toolbar = (Toolbar)findViewById(R.id.homePopToolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.taskPopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Announcement");
+        setTitle("Task Detail");
     }
 
     @Override
