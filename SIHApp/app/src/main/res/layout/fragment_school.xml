@@ -4,10 +4,44 @@
     android:layout_height="match_parent"
     tools:context="com.example.abhisheikh.sihapp.fragment.SchoolFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/schoolImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:src="@drawable/school1"
+                android:adjustViewBounds="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="About School"
+                tools:text="About School"/>
+
+            <TextView
+                android:id="@+id/schoolDataTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:text="Data about school"
+                tools:text="Data about school"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>
