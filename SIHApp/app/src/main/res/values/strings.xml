@@ -14,7 +14,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="home_fragment_announcement">Recent Announcements</string>
-    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_meetings_pop">MeetingsPop</string>
     <string-array name="year">
         <item>Select Year</item>

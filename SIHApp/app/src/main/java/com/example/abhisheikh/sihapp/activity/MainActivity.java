@@ -17,6 +17,7 @@ import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.fragment.ContactsFragment;
 import com.example.abhisheikh.sihapp.fragment.FundsFragment;
 import com.example.abhisheikh.sihapp.fragment.HomeFragment;
+import com.example.abhisheikh.sihapp.fragment.LogoutFragment;
 import com.example.abhisheikh.sihapp.fragment.MeetingsFragment;
 import com.example.abhisheikh.sihapp.fragment.SchoolFragment;
 import com.example.abhisheikh.sihapp.fragment.TasksFragment;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements
         FundsFragment.OnFragmentInteractionListener,
         TasksFragment.OnFragmentInteractionListener,
         SchoolFragment.OnFragmentInteractionListener,
-        ContactsFragment.OnFragmentInteractionListener{
+        ContactsFragment.OnFragmentInteractionListener,
+        LogoutFragment.OnFragmentInteractionListener{
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -93,6 +95,9 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.nav_contacts:
                 fragmentClass = ContactsFragment.class;
+                break;
+            case R.id.nav_logout:
+                fragmentClass = LogoutFragment.class;
                 break;
             default:
                 fragmentClass = HomeFragment.class;
