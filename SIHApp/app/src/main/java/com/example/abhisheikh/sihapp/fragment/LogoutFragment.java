@@ -1,37 +1,41 @@
 package com.example.abhisheikh.sihapp.fragment;
 
-        import android.content.Context;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-        import com.example.abhisheikh.sihapp.activity.LoginActivity;
-        import com.example.abhisheikh.sihapp.R;
-        import android.content.Intent;
-        import android.support.annotation.NonNull;
-        import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.Toolbar;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.ProgressBar;
-        import android.widget.Toast;
+import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.activity.LoginActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-        import com.google.android.gms.tasks.OnCompleteListener;
-        import com.google.android.gms.tasks.Task;
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link LogoutFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link LogoutFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class LogoutFragment extends Fragment {
 
+    private OnFragmentInteractionListener mListener;
 
-public class LogoutActivity extends Fragment {
-
-    public LogoutActivity() {
+    public LogoutFragment() {
         // Required empty public constructor
     }
-
-
 
     private Button btnChangeEmail, changeEmail, changePassword, sendEmail, remove, signOut;
 
@@ -40,12 +44,30 @@ public class LogoutActivity extends Fragment {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
 
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment LogoutFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static LogoutFragment newInstance(String param1, String param2) {
+        LogoutFragment fragment = new LogoutFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
         //get firebase auth instance
 
         auth = FirebaseAuth.getInstance();
@@ -65,12 +87,14 @@ public class LogoutActivity extends Fragment {
                 }
             }
         };
-        View view = inflater.inflate(R.layout.activity_logout, null);
+        View view = inflater.inflate(R.layout.fragment_logout, null);
 
 
         btnChangeEmail = (Button) view.findViewById(R.id.change_email_button);
         changeEmail = (Button) view.findViewById(R.id.changeEmail);
         remove = (Button) view.findViewById(R.id.remove);
+        changePassword = (Button)view.findViewById(R.id.changePass);
+        sendEmail = (Button)view.findViewById(R.id.send);
         signOut = (Button) view.findViewById(R.id.sign_out);
 
         oldEmail = (EditText) view.findViewById(R.id.old_email);
@@ -143,7 +167,6 @@ public class LogoutActivity extends Fragment {
         return view;
     }
 
-
     //sign out method
     public void signOut() {
         auth.signOut();
@@ -167,5 +190,44 @@ public class LogoutActivity extends Fragment {
         if (authListener != null) {
             auth.removeAuthStateListener(authListener);
         }
+    }
+
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 }
