@@ -37,9 +37,9 @@ public class LogoutFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private Button btnChangeEmail, changeEmail, changePassword, sendEmail, remove, signOut;
+    private Button btnChangeEmail, changeEmail, signOut;
 
-    private EditText oldEmail, newEmail, password, newPassword;
+    private EditText oldEmail, newEmail;
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
@@ -92,24 +92,14 @@ public class LogoutFragment extends Fragment {
 
         btnChangeEmail = (Button) view.findViewById(R.id.change_email_button);
         changeEmail = (Button) view.findViewById(R.id.changeEmail);
-        remove = (Button) view.findViewById(R.id.remove);
-        changePassword = (Button)view.findViewById(R.id.changePass);
-        sendEmail = (Button)view.findViewById(R.id.send);
         signOut = (Button) view.findViewById(R.id.sign_out);
 
         oldEmail = (EditText) view.findViewById(R.id.old_email);
         newEmail = (EditText) view.findViewById(R.id.new_email);
-        password = (EditText) view.findViewById(R.id.password);
-        newPassword = (EditText) view.findViewById(R.id.newPassword);
 
         oldEmail.setVisibility(View.GONE);
         newEmail.setVisibility(View.GONE);
-        password.setVisibility(View.GONE);
-        newPassword.setVisibility(View.GONE);
         changeEmail.setVisibility(View.GONE);
-        changePassword.setVisibility(View.GONE);
-        sendEmail.setVisibility(View.GONE);
-        remove.setVisibility(View.GONE);
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
 
@@ -122,12 +112,7 @@ public class LogoutFragment extends Fragment {
             public void onClick(View v) {
                 oldEmail.setVisibility(View.GONE);
                 newEmail.setVisibility(View.VISIBLE);
-                password.setVisibility(View.GONE);
-                newPassword.setVisibility(View.GONE);
                 changeEmail.setVisibility(View.VISIBLE);
-                changePassword.setVisibility(View.GONE);
-                sendEmail.setVisibility(View.GONE);
-                remove.setVisibility(View.GONE);
             }
         });
 
