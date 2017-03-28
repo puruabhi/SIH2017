@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,10 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnLogin = (Button) findViewById(R.id.btn_login);
+        toolbar=(Toolbar) findViewById(R.id.login_toolbar);
+
+        setSupportActionBar(toolbar);
+        setTitle(R.string.login_toolbar_title);
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
