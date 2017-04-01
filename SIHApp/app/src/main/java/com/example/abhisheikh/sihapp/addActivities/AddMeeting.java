@@ -17,17 +17,18 @@ public class AddMeeting extends AppCompatActivity {
 
     EditText dateEdittext;
     Calendar myCalendar;
+    DatePickerDialog.OnDateSetListener date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting);
-        DatePicker d=(DatePicker) findViewById(R.id.dp);
+//        DatePicker d=(DatePicker) findViewById(R.id.dp);
 
         dateEdittext=(EditText) findViewById(R.id.date);
         myCalendar = Calendar.getInstance();
 
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -57,7 +58,7 @@ public class AddMeeting extends AppCompatActivity {
 
     private void updateLabel(){
 
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        String myFormat = "dd MMM yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
 
         dateEdittext.setText(sdf.format(myCalendar.getTime()));
