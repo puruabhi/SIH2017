@@ -29,11 +29,18 @@ public class TaskAdapter extends ArrayAdapter<Task> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
         if(listItemView == null){
-            listItemView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1,parent,false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.task_list_layout,parent,false);
         }
-        TextView textView = (TextView)listItemView.findViewById(android.R.id.text1);
+
         Task current = getItem(position);
-        textView.setText(current.getName());
+        TextView taskNameTextView = (TextView)listItemView.findViewById(R.id.taskNameTextView);
+        taskNameTextView.setText(current.getName());
+        TextView givenToTextView = (TextView)listItemView.findViewById(R.id.givenToTextView);
+        givenToTextView.setText(current.getGivenTo());
+        TextView deadlineTextView = (TextView)listItemView.findViewById(R.id.deadlineTextView);
+        deadlineTextView.setText(current.getDeadline());
+        TextView taskStatusTextView= (TextView)listItemView.findViewById(R.id.taskStatusTextView);
+        taskStatusTextView.setText(current.getStatus());
         return listItemView;
     }
 }

@@ -69,5 +69,7 @@
     <string name="used_fund">Fund Used: </string>
     <string name="fund_received">Received </string>
     <string name="fund_sought">Sought </string>
+    <string name="given_to">Given To</string>
+    <string name="deadline">Deadline</string>
 
 </resources>
