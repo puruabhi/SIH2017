@@ -3,6 +3,7 @@ package com.example.abhisheikh.sihapp.addActivities;
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -26,7 +27,6 @@ public class AddFunds extends AppCompatActivity {
 
         dateEdittext=(EditText) findViewById(R.id.date);
         myCalendar = Calendar.getInstance();
-
         date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -35,10 +35,8 @@ public class AddFunds extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 updateLabel();
             }
-
         };
 
 
@@ -55,7 +53,6 @@ public class AddFunds extends AppCompatActivity {
 
 
     }
-
     private void updateLabel(){
 
         String myFormat = "MMM yyyy"; //In which you need put here
