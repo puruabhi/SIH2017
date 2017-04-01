@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.abhisheikh.sihapp.addActivities.AddMeeting">
-
+    tools:context="com.example.abhisheikh.sihapp.addActivities.AddFunds">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,22 +19,25 @@
                 android:hint="Date"
                 android:focusable="false"/>
             <EditText
-                android:id="@+id/sdpEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="SDP"
+                android:hint="Sought"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
 
             <EditText
-                android:id="@+id/descriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
+                android:hint="Received"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description (Used):"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
             <Button
-                android:id="@+id/addMeetingButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -44,4 +45,5 @@
                 android:text="ADD"/>
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

@@ -1,13 +1,11 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.abhisheikh.sihapp.fragment.FundsFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
 
         <Spinner
             android:id="@+id/fundSpinner"
@@ -15,19 +13,24 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:entries="@array/year"
-            android:background="@android:drawable/btn_dropdown"
-            >
-
-        </Spinner>
+            android:background="@android:drawable/btn_dropdown"/>
 
         <ListView
             android:id="@+id/fundListView"
+            android:layout_below="@+id/fundSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="8dp">
+            android:paddingTop="8dp"/>
 
-        </ListView>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
-    </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
