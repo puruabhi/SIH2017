@@ -91,6 +91,55 @@ public class HomeFragment extends Fragment {
                 getActivity().setTitle(R.string.nav_announcement);
             }
         });
+
+        meetingsImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MeetingsFragment newFragment = new MeetingsFragment();
+                FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                getActivity().setTitle(R.string.nav_meetings);
+            }
+        });
+
+        taskImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TasksFragment newFragment = new TasksFragment();
+                FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                getActivity().setTitle(R.string.nav_tasks);
+            }
+        });
+
+        fundsImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FundsFragment newFragment = new FundsFragment();
+                FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                getActivity().setTitle(R.string.nav_funds);
+            }
+        });
+
+        schoolImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SchoolFragment newFragment = new SchoolFragment();
+                FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                getActivity().setTitle(R.string.nav_school);
+            }
+        });
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
