@@ -20,6 +20,8 @@ import com.example.abhisheikh.sihapp.pop.MeetingsPop;
 
 import java.util.ArrayList;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -32,6 +34,8 @@ public class MeetingsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private ListView meetingsListView;
+    private ArrayList<Meeting> list;
+    private MeetingsAdapter adapter;
 
     public MeetingsFragment() {
         // Required empty public constructor
@@ -67,16 +71,16 @@ public class MeetingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), AddMeeting.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
 
-        ArrayList<Meeting> list = new ArrayList<>();
+        list = new ArrayList<>();
         for(int i=0;i<20;i++){
             list.add(new Meeting("Date "+(i+1),"Development Plan"+(i+1),"Description "+(i+1)));
         }
 
-        MeetingsAdapter adapter = new MeetingsAdapter(getContext(),list);
+        adapter = new MeetingsAdapter(getContext(),list);
 
         meetingsListView = (ListView)view.findViewById(R.id.meetingsListView);
 
@@ -134,5 +138,26 @@ public class MeetingsFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            if(resultCode==RESULT_OK){
+                String newDate = data.getStringExtra("date");
+                String newSdp = data.getStringExtra("sdp");
+                String newDescription = data.getStringExtra("desc");
+
+                Meeting newMeeting = new Meeting(newDate,newSdp,newDescription);
+                list.add(0,newMeeting);
+                refreshListView();
+            }
+        }
+    }
+
+    private void refreshListView(){
+        adapter = new MeetingsAdapter(getContext(),list);
+        meetingsListView.setAdapter(adapter);
     }
 }
