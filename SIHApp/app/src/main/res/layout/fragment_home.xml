@@ -4,29 +4,167 @@
     android:layout_height="match_parent"
     tools:context="com.example.abhisheikh.sihapp.fragment.HomeFragment">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        >
+        tools:context="com.example.abhisheikh.sihapp.pop.AnnouncementPop">
 
-    <TextView
-        android:id="@+id/homeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home_fragment_announcement"
-        android:textSize="20dp"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        />
 
-    <ListView
-        android:id="@+id/homeListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        ></ListView>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/homePopToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/firstLayer"
+            android:layout_below="@id/homePopToolbar"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/announcementImageButton"
+                    android:layout_margin="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/announcement"/>
+
+                <TextView
+                    android:layout_below="@id/announcementImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_announcement"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/meetingsImageButton"
+                    android:layout_margin="8dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/meeting"/>
+
+                <TextView
+                    android:layout_below="@id/meetingsImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_meetings"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/fundsImageButton"
+                    android:layout_margin="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/fund"/>
+
+                <TextView
+                    android:layout_below="@id/fundsImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_funds"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondLayer"
+            android:layout_below="@id/firstLayer"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/taskImageButton"
+                    android:layout_margin="8dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/task"/>
+
+                <TextView
+                    android:layout_below="@id/taskImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_tasks"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/schoolImageButton"
+                    android:layout_margin="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/school_icon"/>
+
+                <TextView
+                    android:layout_below="@id/schoolImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_school"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
 </FrameLayout>

@@ -5,19 +5,25 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.activity.MainActivity;
 import com.example.abhisheikh.sihapp.adapter.AnnouncementAdapter;
 import com.example.abhisheikh.sihapp.other.Announcement;
 import com.example.abhisheikh.sihapp.pop.AnnouncementPop;
 
 import java.util.ArrayList;
+
+import static com.example.abhisheikh.sihapp.R.mipmap.tasks;
 
 
 /**
@@ -31,8 +37,8 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    TextView homeTextView;
-    ListView homeListView;
+    ImageButton announcementImageButton,meetingsImageButton,fundsImageButton;
+    ImageButton taskImageButton, schoolImageButton;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -61,29 +67,29 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ArrayList<Announcement> list = new ArrayList<>();
-        for(int i=0;i<20;i++){
-            list.add(new Announcement("Date "+(i+1),"Description "+(i+1)));
-        }
+        announcementImageButton = (ImageButton)view.findViewById(R.id.announcementImageButton);
+        meetingsImageButton = (ImageButton)view.findViewById(R.id.meetingsImageButton);
+        fundsImageButton = (ImageButton)view.findViewById(R.id.fundsImageButton);
+        taskImageButton = (ImageButton)view.findViewById(R.id.taskImageButton);
+        schoolImageButton = (ImageButton)view.findViewById(R.id.schoolImageButton);
 
-        AnnouncementAdapter adapter = new AnnouncementAdapter(getActivity(),list);
-
-        homeListView = (ListView)view.findViewById(R.id.homeListView);
-
-        homeListView.setAdapter(adapter);
-
-        homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Announcement home = (Announcement)parent.getItemAtPosition(position);
-                Intent intent = new Intent(getContext(), AnnouncementPop.class);
-                intent.putExtra("date",home.getDate());
-                intent.putExtra("description",home.getDescription());
-                startActivity(intent);
-            }
-        });
+        setOnClickListeners();
 
         return view;
+    }
+
+    private void setOnClickListeners(){
+        announcementImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AnnouncementFragment newFragment = new AnnouncementFragment();
+                FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                getActivity().setTitle(R.string.nav_announcement);4
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -109,6 +115,8 @@ public class HomeFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    
 
     /**
      * This interface must be implemented by activities that contain this
