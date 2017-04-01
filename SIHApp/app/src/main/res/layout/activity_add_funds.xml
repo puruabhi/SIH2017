@@ -16,14 +16,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/date"
-                android:hint="Date"
+                android:hint="@string/date"
                 android:focusable="false"/>
             <EditText
                 android:id="@+id/soughtEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Sought"
+                android:hint="@string/sought"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
 
@@ -32,14 +32,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Received"
+                android:hint="@string/received"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
             <EditText
                 android:id="@+id/fundsDescriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description (Used):"
+                android:hint="@string/description_fund"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
             <Button
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@color/colorAccent"
-                android:text="ADD"/>
+                android:text="@string/add"/>
         </LinearLayout>
     </ScrollView>
 
