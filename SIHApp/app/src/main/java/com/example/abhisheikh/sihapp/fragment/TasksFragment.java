@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,17 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.adapter.MeetingsAdapter;
 import com.example.abhisheikh.sihapp.adapter.TaskAdapter;
+import com.example.abhisheikh.sihapp.addActivities.AddMeeting;
+import com.example.abhisheikh.sihapp.addActivities.AddTasks;
+import com.example.abhisheikh.sihapp.other.Meeting;
 import com.example.abhisheikh.sihapp.other.Task;
 import com.example.abhisheikh.sihapp.pop.TaskPop;
 
 import java.util.ArrayList;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +36,9 @@ import java.util.ArrayList;
 public class TasksFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private ArrayList<Task> tasks;
+    private TaskAdapter adapter;
+    private ListView taskListView;
 
     public TasksFragment() {
         // Required empty public constructor
@@ -60,14 +70,23 @@ public class TasksFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
-        ArrayList<Task> tasks = new ArrayList<>();
+        FloatingActionButton fab= (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), AddTasks.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+
+        tasks = new ArrayList<>();
         for(int i=0;i<20;i++){
             tasks.add(new Task("Task "+i,"Task "+i+" Detail"));
         }
 
         TaskAdapter adapter = new TaskAdapter(getActivity(),tasks);
 
-        ListView taskListView = (ListView)view.findViewById(R.id.tasksListView);
+        taskListView = (ListView)view.findViewById(R.id.tasksListView);
         taskListView.setAdapter(adapter);
 
         taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -121,5 +140,25 @@ public class TasksFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            if(resultCode==RESULT_OK){
+                String newImp = data.getStringExtra("imp");
+                String newTasks = data.getStringExtra("task");
+
+                Task newTask= new Task(newTasks,newImp);
+                tasks.add(0,newTask);
+                refreshListView();
+            }
+        }
+    }
+
+    private void refreshListView(){
+        adapter = new TaskAdapter(getContext(),tasks);
+        taskListView.setAdapter(adapter);
     }
 }

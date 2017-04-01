@@ -24,7 +24,7 @@ public class TaskPop extends AppCompatActivity {
         TextView taskDetailTextView = (TextView)findViewById(R.id.taskDetailTextView);
 
         taskNameTextView.setText(name);
-        taskDetailTextView.setText(detail + "a\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\naa\n\n\na");
+        taskDetailTextView.setText(detail);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.taskPopToolbar);
         setSupportActionBar(toolbar);

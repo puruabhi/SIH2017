@@ -16,6 +16,7 @@ import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.other.Meeting;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -63,8 +64,6 @@ public class AddMeeting extends AppCompatActivity {
                 String description = descriptionEditText.getText().toString();
 
                 System.out.println("sdp is:"+sdp);
-                Log.d("Date: ",date);
-                Log.d("sdp: ",sdp);
                 if(date!=null && !sdp.equals("")) {
                     Intent intent = new Intent();
                     intent.putExtra("date", date);
