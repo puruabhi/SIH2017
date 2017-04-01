@@ -28,7 +28,7 @@ public class FundPop extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.fundPopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Usage");
+        setTitle(R.string.fund_pop_title);
     }
 
     @Override

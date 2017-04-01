@@ -61,5 +61,7 @@
     <string name="tasks">Tasks</string>
     <string name="implementation">Implementation</string>
     <string name="school_about">About School</string>
+    <string name="fund_pop_title">Use of fund</string>
+    <string name="task_detail">Task Details</string>
 
 </resources>

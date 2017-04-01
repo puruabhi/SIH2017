@@ -37,7 +37,7 @@ public class MeetingsPop extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.meetingsPopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Meeting");
+        setTitle(R.string.nav_meetings);
     }
 
     @Override

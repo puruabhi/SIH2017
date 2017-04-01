@@ -29,7 +29,7 @@ public class TaskPop extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.taskPopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Task Detail");
+        setTitle(R.string.task_detail);
     }
 
     @Override

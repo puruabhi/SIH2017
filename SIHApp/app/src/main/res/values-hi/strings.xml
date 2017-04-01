@@ -4,7 +4,7 @@
     <string name="close">बंद_करे</string>
 
     <!-- Navigation tabs -->
-    <string name="nav_announcement">अनुवाद</string>
+    <string name="nav_announcement">घोषणा</string>
     <string name="nav_home">घर</string>
     <string name="nav_meetings">बैठकें</string>
     <string name="nav_funds">निधि</string>
@@ -61,5 +61,7 @@
     <string name="tasks">कार्य</string>
     <string name="implementation">कार्यान्वयन</string>
     <string name="school_about">विद्यालय के बारे में</string>
+    <string name="fund_pop_title">निधि का उपयोग</string>
+    <string name="task_detail">कार्य विवरण</string>
 
 </resources>
