@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/splashScreenActivity"
+    android:background="@color/colorPrimary"
     tools:context="com.example.abhisheikh.sihapp.activity.SplashScreenActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="center"
-        android:src="@color/bg_login"/>
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ncpcr_icon"/>
 
 </RelativeLayout>

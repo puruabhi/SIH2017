@@ -14,7 +14,7 @@
         <activity android:name=".pop.MeetingsPop" />
         <activity android:name=".pop.FundPop" />
         <activity android:name=".pop.TaskPop" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
         <activity android:name=".addActivities.AddMeeting" />
         <activity android:name=".addActivities.AddFunds" />
         <activity android:name=".addActivities.AddTasks" />
-        <activity android:name=".activity.SplashScreenActivity"></activity>
+        <activity android:name=".activity.LoginActivity"></activity>
     </application>
 
 </manifest>
