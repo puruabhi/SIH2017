@@ -14,12 +14,16 @@ import android.widget.ListView;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.adapter.FundsAdapter;
+import com.example.abhisheikh.sihapp.adapter.MeetingsAdapter;
 import com.example.abhisheikh.sihapp.addActivities.AddFunds;
 import com.example.abhisheikh.sihapp.addActivities.AddMeeting;
 import com.example.abhisheikh.sihapp.other.Fund;
+import com.example.abhisheikh.sihapp.other.Meeting;
 import com.example.abhisheikh.sihapp.pop.FundPop;
 
 import java.util.ArrayList;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +35,9 @@ import java.util.ArrayList;
  */
 public class FundsFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
+    private ArrayList<Fund> funds;
+    private FundsAdapter adapter;
+    ListView fundsListView;
 
     public FundsFragment() {
         // Required empty public constructor
@@ -68,17 +75,17 @@ public class FundsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), AddFunds.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
 
-        ArrayList<Fund> funds= new ArrayList<>();
+        funds= new ArrayList<>();
         for(int i=0;i<20;i++){
-            funds.add(new Fund("January",1000*i,750*i,"used "+i));
+            funds.add(new Fund("January",(float)1000*i,(float)750*i,"used "+i));
         }
 
-        FundsAdapter adapter = new FundsAdapter(getActivity(),funds);
-        ListView fundsListView = (ListView)view.findViewById(R.id.fundListView);
+        adapter = new FundsAdapter(getActivity(),funds);
+        fundsListView = (ListView)view.findViewById(R.id.fundListView);
         fundsListView.setAdapter(adapter);
 
         fundsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -131,5 +138,26 @@ public class FundsFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            if(resultCode==RESULT_OK){
+                String newDate = data.getStringExtra("date");
+                String newSought = data.getStringExtra("sought");
+                String newReceived = data.getStringExtra("received");
+                String newDescription = data.getStringExtra("desc");
+
+                Fund newFund = new Fund(newDate,Float.parseFloat(newSought),Float.parseFloat(newReceived),newDescription);
+                funds.add(0,newFund);
+                refreshListView();
+            }
+        }
+    }
+    private void refreshListView(){
+        adapter = new FundsAdapter(getContext(),funds);
+        fundsListView.setAdapter(adapter);
     }
 }

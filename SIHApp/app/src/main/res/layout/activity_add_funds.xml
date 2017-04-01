@@ -19,25 +19,31 @@
                 android:hint="Date"
                 android:focusable="false"/>
             <EditText
+                android:id="@+id/soughtEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
                 android:hint="Sought"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
 
             <EditText
+                android:id="@+id/receivedEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
                 android:hint="Received"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
             <EditText
+                android:id="@+id/fundsDescriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Description (Used):"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
             <Button
+                android:id="@+id/addFundButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

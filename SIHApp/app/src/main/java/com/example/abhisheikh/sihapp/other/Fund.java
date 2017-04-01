@@ -5,29 +5,29 @@ package com.example.abhisheikh.sihapp.other;
  */
 
 public class Fund {
-    private int sought, received;
+    private float sought, received;
     private String used, month;
 
-    public Fund(String month,int sought, int received, String used) {
-        this.month = month;
+    public Fund(String month, float sought, float received, String used) {
         this.sought = sought;
         this.received = received;
         this.used = used;
+        this.month = month;
     }
 
-    public int getSought() {
+    public float getSought() {
         return sought;
     }
 
-    public void setSought(int sought) {
+    public void setSought(float sought) {
         this.sought = sought;
     }
 
-    public int getReceived() {
+    public float getReceived() {
         return received;
     }
 
-    public void setReceived(int received) {
+    public void setReceived(float received) {
         this.received = received;
     }
 

@@ -62,9 +62,9 @@ public class AddMeeting extends AppCompatActivity {
                 String sdp = sdpEditText.getText().toString();
                 String description = descriptionEditText.getText().toString();
 
-                System.out.println("sdp is:"+sdp);
-                Log.d("Date: ",date);
-                Log.d("sdp: ",sdp);
+//                System.out.println("sdp is:"+sdp);
+//                Log.d("Date: ",date);
+//                Log.d("sdp: ",sdp);
                 if(date!=null && !sdp.equals("")) {
                     Intent intent = new Intent();
                     intent.putExtra("date", date);
