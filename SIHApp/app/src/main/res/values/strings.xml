@@ -4,6 +4,7 @@
     <string name="close">Close</string>
 
     <!-- Navigation tabs -->
+    <string name="nav_announcement">Announcement</string>
     <string name="nav_home">Home</string>
     <string name="nav_meetings">Meetings</string>
     <string name="nav_funds">Funds</string>
@@ -44,7 +45,7 @@
     <string name="new_pass">New Password</string>
     <string name="title_activity_profile">Firebase</string>
     <string name="title_activity_login">Sign in</string>
-    <string name="hint_email">Email</string>
+    <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>

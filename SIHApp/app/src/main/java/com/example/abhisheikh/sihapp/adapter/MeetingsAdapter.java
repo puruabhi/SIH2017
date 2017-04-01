@@ -1,7 +1,6 @@
 package com.example.abhisheikh.sihapp.adapter;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.abhisheikh.sihapp.R;
-import com.example.abhisheikh.sihapp.other.Home;
 import com.example.abhisheikh.sihapp.other.Meeting;
 
 import java.util.ArrayList;

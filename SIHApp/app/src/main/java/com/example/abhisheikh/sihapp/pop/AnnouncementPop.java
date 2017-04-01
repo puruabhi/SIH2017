@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.abhisheikh.sihapp.R;
 
-public class HomePop extends AppCompatActivity {
+public class AnnouncementPop extends AppCompatActivity {
 
     TextView homeDatePopText,homeDescriptionPopText;
     Toolbar toolbar;
@@ -38,7 +38,7 @@ public class HomePop extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
+            // Respond to the action bar's Up/Announcement button
             case android.R.id.home:
                 finish();
                 return true;

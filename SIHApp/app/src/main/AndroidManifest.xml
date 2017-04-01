@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".pop.HomePop" />
+        <activity android:name=".pop.AnnouncementPop" />
         <activity android:name=".pop.MeetingsPop" />
         <activity android:name=".pop.FundPop" />
         <activity android:name=".pop.TaskPop" />

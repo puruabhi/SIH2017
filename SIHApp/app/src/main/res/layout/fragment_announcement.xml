@@ -1,0 +1,33 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.abhisheikh.sihapp.fragment.AnnouncementFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        >
+
+        <TextView
+            android:id="@+id/announcementTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_fragment_announcement"
+            android:textSize="20dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            />
+
+        <ListView
+            android:id="@+id/announcementListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></ListView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

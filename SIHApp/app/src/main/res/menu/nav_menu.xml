@@ -4,7 +4,12 @@
     <group android:id="@+id/group1" android:checkableBehavior="single">
         <item android:id="@+id/nav_home"
             android:icon="@mipmap/ic_home_black_24dp"
+
             android:title="@string/nav_home"/>
+
+        <item android:id="@+id/nav_announcement"
+            android:icon="@mipmap/ic_announcement_black_24dp"
+            android:title="@string/nav_announcement"/>
 
         <item android:id="@+id/nav_meetings"
             android:icon="@mipmap/meeting"
