@@ -66,6 +66,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        getActivity().setTitle(R.string.nav_home);
 
         announcementImageButton = (ImageButton)view.findViewById(R.id.announcementImageButton);
         meetingsImageButton = (ImageButton)view.findViewById(R.id.meetingsImageButton);
@@ -116,7 +117,13 @@ public class HomeFragment extends Fragment {
         mListener = null;
     }
 
-    
+    /*@Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().getActionBar()
+                .setTitle(R.string.nav_home);
+    }*/
 
     /**
      * This interface must be implemented by activities that contain this
