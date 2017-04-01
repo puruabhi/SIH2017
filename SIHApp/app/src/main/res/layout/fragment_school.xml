@@ -27,7 +27,7 @@
                 android:paddingRight="16dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="About School"
+                android:text="@string/school_about"
                 tools:text="About School"/>
 
             <TextView

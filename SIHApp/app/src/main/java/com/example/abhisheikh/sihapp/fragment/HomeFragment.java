@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
                 fragmentTransaction.replace(R.id.frameLayout,newFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-                getActivity().setTitle(R.string.nav_announcement);4
+                getActivity().setTitle(R.string.nav_announcement);
             }
         });
     }

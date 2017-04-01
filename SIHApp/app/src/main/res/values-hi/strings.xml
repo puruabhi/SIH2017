@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">SIH ऐप</string>
+    <string name="open">खोलें</string>
+    <string name="close">बंद_करे</string>
+
+    <!-- Navigation tabs -->
+    <string name="nav_announcement">अनुवाद</string>
+    <string name="nav_home">घर</string>
+    <string name="nav_meetings">बैठकें</string>
+    <string name="nav_funds">निधि</string>
+    <string name="nav_tasks">कार्य</string>
+    <string name="nav_school">विद्यालय</string>
+    <string name="nav_contacts">संपर्क</string>
+    <string name="nav_logout">लोग आउट</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment_announcement">हाल की घोषणाएं</string>
+    <string name="hello_blank_fragment">नमस्ते रिक्त टुकड़ा</string>
+    <string name="title_activity_meetings_pop">बैठकें पॉप</string>
+    <string-array name="year">
+        <item>वर्ष का चयन करें</item>
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+        <item>2014</item>
+        <item>2013</item>
+        <item>2012</item>
+        <item>2011</item>
+        <item>2010</item>
+        <item>2009</item>
+        <item>2008</item>
+        <item>2007</item>
+        <item>2006</item>
+    </string-array>
+
+    <string name="login_toolbar_title">SIH ऐप</string>
+    <string name="action_sign_in_short">रजिस्टर</string>
+    <string name="email">ईमेल</string>
+    <string name="minimum_password">पासवर्ड बहुत छोटा है, न्यूनतम 6 अक्षर दर्ज करें!</string>
+    <string name="auth_failed">प्रमाणीकरण विफल रहा, अपना ईमेल और पासवर्ड जांचें या साइन अप करें</string>
+    <string name="change_email">ई-मेल बदलें</string>
+    <string name="title_activity_profile">फायरबेज</string>
+    <string name="title_activity_login">साइन इन करें</string>
+    <string name="hint_username">उपयोगकर्ता नाम</string>
+    <string name="hint_password">पासवर्ड</string>
+    <string name="hint_name">पूरा नाम</string>
+    <string name="btn_login">लॉग इन करें</string>
+    <string name="hint_new_email">नई ईमेल</string>
+    <string name="btn_change">परिवर्तन</string>
+    <string name="btn_send">भेजें</string>
+    <string name="btn_remove">कृपया निकालें</string>
+    <string name="btn_sign_out">साइन आउट</string>
+    <string name="lbl_forgot_password">पासवर्ड भूल गए?</string>
+    <string name="sdp">विद्यालय विकास योजना</string>
+    <string name="date">तारीख</string>
+    <string name="description">विवरण</string>
+    <string name="add">जोड़ें</string>
+    <string name="sought">मांगा</string>
+    <string name="received">प्राप्त किया</string>
+    <string name="description_fund">विवरण (उपयोग किया गया):</string>
+    <string name="tasks">कार्य</string>
+    <string name="implementation">कार्यान्वयन</string>
+    <string name="school_about">विद्यालय के बारे में</string>
+
+</resources>
