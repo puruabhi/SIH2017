@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".addActivities.AddMeeting" />
         <activity android:name=".addActivities.AddFunds" />
-        <activity android:name=".addActivities.AddTasks"></activity>
+        <activity android:name=".addActivities.AddTasks" />
+        <activity android:name=".activity.SplashScreenActivity"></activity>
     </application>
 
 </manifest>
