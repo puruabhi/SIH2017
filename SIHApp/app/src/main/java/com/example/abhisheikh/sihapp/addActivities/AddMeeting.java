@@ -20,11 +20,12 @@ public class AddMeeting extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener date;
     SimpleDateFormat sdf;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting);
-//        DatePicker d=(DatePicker) findViewById(R.id.dp);
 
         dateEdittext=(EditText) findViewById(R.id.date);
         myCalendar = Calendar.getInstance();
