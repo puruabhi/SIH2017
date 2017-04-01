@@ -51,7 +51,7 @@
     <string name="btn_remove">Remove</string>
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot Password?</string>
-    <string name="sdp">SDP</string>
+    <string name="sdp">Agenda</string>
     <string name="date">Date</string>
     <string name="description">Description</string>
     <string name="add">ADD</string>
@@ -65,5 +65,9 @@
     <string name="task_detail">Task Details</string>
     <string name="announcement">Announcement</string>
     <string name="nav_head">Navigation Header</string>
+    <string name="meeting_status">Status</string>
+    <string name="used_fund">Fund Used: </string>
+    <string name="fund_received">Received </string>
+    <string name="fund_sought">Sought </string>
 
 </resources>

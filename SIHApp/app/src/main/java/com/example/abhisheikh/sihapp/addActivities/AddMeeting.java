@@ -22,7 +22,7 @@ import java.util.Locale;
 
 public class AddMeeting extends AppCompatActivity {
 
-    EditText dateEdittext,sdpEditText,descriptionEditText;
+    EditText dateEdittext,sdpEditText,descriptionEditText,statusEditText;
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date;
     Button addButton;
@@ -36,6 +36,7 @@ public class AddMeeting extends AppCompatActivity {
         dateEdittext=(EditText) findViewById(R.id.date);
         sdpEditText = (EditText)findViewById(R.id.sdpEditText);
         descriptionEditText = (EditText)findViewById(R.id.descriptionEditText);
+        statusEditText=(EditText)findViewById(R.id.statusEditText);
         addButton  = (Button)findViewById(R.id.addMeetingButton);
         myCalendar = Calendar.getInstance();
 
@@ -62,12 +63,14 @@ public class AddMeeting extends AppCompatActivity {
                 String date = sdf.format(myCalendar.getTime());
                 String sdp = sdpEditText.getText().toString();
                 String description = descriptionEditText.getText().toString();
+                String status= statusEditText.getText().toString();
                 System.out.println("sdp is:"+sdp);
                 if(date!=null && !sdp.equals("")) {
                     Intent intent = new Intent();
                     intent.putExtra("date", date);
                     intent.putExtra("sdp", sdp);
                     intent.putExtra("desc", description);
+                    intent.putExtra("status",status);
                     setResult(RESULT_OK, intent);
                     finish();
                 }

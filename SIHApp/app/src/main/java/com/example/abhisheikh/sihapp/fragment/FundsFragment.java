@@ -81,7 +81,7 @@ public class FundsFragment extends Fragment {
 
         funds= new ArrayList<>();
         for(int i=0;i<20;i++){
-            funds.add(new Fund("January",(float)1000*i,(float)750*i,"used "+i));
+            funds.add(new Fund("January",(float)1000*i,(float)750*i,(float)500*i, "useDetails "+i));
         }
 
         adapter = new FundsAdapter(getActivity(),funds);
@@ -149,8 +149,9 @@ public class FundsFragment extends Fragment {
                 String newSought = data.getStringExtra("sought");
                 String newReceived = data.getStringExtra("received");
                 String newDescription = data.getStringExtra("desc");
+                String newUsed=data.getStringExtra("used");
 
-                Fund newFund = new Fund(newDate,Float.parseFloat(newSought),Float.parseFloat(newReceived),newDescription);
+                Fund newFund = new Fund(newDate,Float.parseFloat(newSought),Float.parseFloat(newReceived),Float.parseFloat(newUsed),newDescription);
                 funds.add(0,newFund);
                 refreshListView();
             }

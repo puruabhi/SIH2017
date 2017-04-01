@@ -51,7 +51,7 @@
     <string name="btn_remove">कृपया निकालें</string>
     <string name="btn_sign_out">साइन आउट</string>
     <string name="lbl_forgot_password">पासवर्ड भूल गए?</string>
-    <string name="sdp">विद्यालय विकास योजना</string>
+    <string name="sdp">एजेंडा</string>
     <string name="date">तारीख</string>
     <string name="description">विवरण</string>
     <string name="add">जोड़ें</string>
@@ -65,5 +65,7 @@
     <string name="task_detail">कार्य विवरण</string>
     <string name="announcement">घोषणा</string>
     <string name="nav_head">नेविगेशन शीर्षलेख</string>
+    <string name="meeting_status">स्थिति</string>
+    <string name="used_fund">निधि व्यय</string>
 
 </resources>

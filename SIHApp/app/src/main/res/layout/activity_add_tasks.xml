@@ -23,6 +23,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/implementation"/>
+        <EditText
+            android:id="@+id/givenToEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/implementation"/>
+        <EditText
+            android:id="@+id/deadlineEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/implementation"/>
+        <EditText
+            android:id="@+id/statusEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/implementation"/>
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"

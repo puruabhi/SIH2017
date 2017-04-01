@@ -77,7 +77,7 @@ public class MeetingsFragment extends Fragment {
 
         list = new ArrayList<>();
         for(int i=0;i<20;i++){
-            list.add(new Meeting("Date "+(i+1),"Development Plan"+(i+1),"Description "+(i+1)));
+            list.add(new Meeting("Date "+(i+1),"Development Plan"+(i+1),"Description "+(i+1), "Status "+(i+1)));
         }
 
         adapter = new MeetingsAdapter(getContext(),list);
@@ -148,8 +148,9 @@ public class MeetingsFragment extends Fragment {
                 String newDate = data.getStringExtra("date");
                 String newSdp = data.getStringExtra("sdp");
                 String newDescription = data.getStringExtra("desc");
+                String newStatus= data.getStringExtra("status");
 
-                Meeting newMeeting = new Meeting(newDate,newSdp,newDescription);
+                Meeting newMeeting = new Meeting(newDate,newSdp,newDescription,newStatus);
                 list.add(0,newMeeting);
                 refreshListView();
             }

@@ -81,7 +81,7 @@ public class TasksFragment extends Fragment {
 
         tasks = new ArrayList<>();
         for(int i=0;i<20;i++){
-            tasks.add(new Task("Task "+i,"Task "+i+" Detail"));
+            tasks.add(new Task("Task "+i,"Task "+i+" Detail","Given To"+i,"Today","Status"));
         }
 
         TaskAdapter adapter = new TaskAdapter(getActivity(),tasks);
@@ -149,8 +149,11 @@ public class TasksFragment extends Fragment {
             if(resultCode==RESULT_OK){
                 String newImp = data.getStringExtra("imp");
                 String newTasks = data.getStringExtra("task");
+                String newGivenTo = data.getStringExtra("givenTo");
+                String newDeadline = data.getStringExtra("deadline");
+                String newStatus = data.getStringExtra("status");
 
-                Task newTask= new Task(newTasks,newImp);
+                Task newTask= new Task(newTasks,newImp,newGivenTo,newDeadline,newStatus);
                 tasks.add(0,newTask);
                 refreshListView();
             }

@@ -18,7 +18,7 @@ import java.util.Locale;
 
 public class AddFunds extends AppCompatActivity {
 
-    EditText dateEdittext,soughtEditText,receivedEditText,descriptionEditText;
+    EditText dateEdittext,soughtEditText,receivedEditText,descriptionEditText,usedEditText;
     Calendar myCalendar;
     Button addFundButton;
     DatePickerDialog.OnDateSetListener date;
@@ -32,6 +32,7 @@ public class AddFunds extends AppCompatActivity {
         soughtEditText = (EditText)findViewById(R.id.soughtEditText);
         receivedEditText = (EditText)findViewById(R.id.receivedEditText);
         descriptionEditText = (EditText)findViewById(R.id.fundsDescriptionEditText);
+        usedEditText = (EditText)findViewById(R.id.usedEditText);
         addFundButton = (Button)findViewById(R.id.addFundButton);
         myCalendar = Calendar.getInstance();
 
@@ -68,6 +69,7 @@ public class AddFunds extends AppCompatActivity {
                 String sought = soughtEditText.getText().toString();
                 String received = receivedEditText.getText().toString();
                 String description = descriptionEditText.getText().toString();
+                String used=usedEditText.getText().toString();
 
                 if(date!=null && !sought.equals("") && !received.equals("")) {
                     Intent intent = new Intent();
@@ -75,6 +77,7 @@ public class AddFunds extends AppCompatActivity {
                     intent.putExtra("sought", sought);
                     intent.putExtra("received",received);
                     intent.putExtra("desc", description);
+                    intent.putExtra("used",used);
                     setResult(RESULT_OK, intent);
                     finish();
                 }

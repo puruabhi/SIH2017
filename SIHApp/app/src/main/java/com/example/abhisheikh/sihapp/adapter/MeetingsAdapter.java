@@ -29,11 +29,13 @@ public class MeetingsAdapter extends ArrayAdapter<Meeting> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
         if(listItemView==null){
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.home_list_layout,parent,false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.meeting_list_layout,parent,false);
         }
 
         Meeting current = getItem(position);
         TextView dateTextView = (TextView)listItemView.findViewById(R.id.dateTextView);
+        TextView statusTextView = (TextView)listItemView.findViewById(R.id.statusTextView);
+        statusTextView.setText(current.getStatus());
         dateTextView.setText(current.getDate());
         TextView descriptionTextView = (TextView)listItemView.findViewById(R.id.descriptionTextView);
         descriptionTextView.setText(current.getDevelopementPlan());

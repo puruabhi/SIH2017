@@ -9,11 +9,13 @@ public class Meeting {
     private String date;
     private String developementPlan;
     private String decision;
+    private String status;
 
-    public Meeting(String date, String developementPlan, String decision) {
+    public Meeting(String date, String developementPlan, String decision, String status) {
         this.date = date;
         this.developementPlan = developementPlan;
         this.decision = decision;
+        this.status=status;
     }
 
     public String getDate() {
@@ -39,4 +41,7 @@ public class Meeting {
     public void setDecision(String decision) {
         this.decision = decision;
     }
+
+    public String getStatus(){ return status;}
+    public void setStatus(String status){this.status = status;}
 }

@@ -18,6 +18,7 @@
         android:layout_weight="1"
         tools:text="Month"/>
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -29,14 +30,14 @@
             android:layout_height="match_parent"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:text="Sought: "
-            tools:text="Sought: "/>
+            android:text="@string/fund_sought"/>
 
         <TextView
             android:id="@+id/fundSoughtTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textSize="14sp"
+            android:paddingLeft="8dp"
             tools:text="Rs. 00000"/>
 
     </LinearLayout>
@@ -51,17 +52,41 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textSize="14sp"
-            android:text="Received: "
-            android:textStyle="bold"
-            tools:text="Received: "/>
+            android:text="@string/fund_received"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/fundReceivedTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textSize="14sp"
+            android:paddingLeft="8dp"
             tools:text="Rs. 00000"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:text="@string/used_fund"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/usedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:paddingLeft="8dp"
+            tools:text="Rs. 00000"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

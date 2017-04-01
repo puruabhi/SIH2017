@@ -5,14 +5,17 @@ package com.example.abhisheikh.sihapp.other;
  */
 
 public class Fund {
-    private float sought, received;
-    private String used, month;
+    private float sought, received, used;
+    private String useDetail, month;
+    private float availableFunds;
 
-    public Fund(String month, float sought, float received, String used) {
+    public Fund(String month, float sought, float received, float used, String useDetail) {
         this.sought = sought;
         this.received = received;
         this.used = used;
         this.month = month;
+        this.useDetail=useDetail;
+        this.availableFunds=received-used;
     }
 
     public float getSought() {
@@ -31,11 +34,12 @@ public class Fund {
         this.received = received;
     }
 
-    public String getUsed() {
+    public float getUsed() {
         return used;
     }
 
-    public void setUsed(String used) {
+
+    public void setUsed(float used) {
         this.used = used;
     }
 
@@ -45,5 +49,21 @@ public class Fund {
 
     public void setMonth(String month) {
         this.month = month;
+    }
+
+    public float getAvailableFunds() {
+        return availableFunds;
+    }
+
+    public void setAvailableFunds(float availableFunds) {
+        this.availableFunds = availableFunds;
+    }
+
+    public String getUseDetail() {
+        return useDetail;
+    }
+
+    public void setUseDetail(String useDetail) {
+        this.useDetail = useDetail;
     }
 }

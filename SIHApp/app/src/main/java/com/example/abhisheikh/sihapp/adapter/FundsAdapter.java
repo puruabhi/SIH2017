@@ -36,6 +36,9 @@ public class FundsAdapter extends ArrayAdapter<Fund> {
         TextView fundMonthTextView = (TextView)listItemView.findViewById(R.id.fundMonthTextView);
         fundMonthTextView.setText(current.getMonth());
 
+        TextView fundusedTextView = (TextView)listItemView.findViewById(R.id.usedTextView);
+        fundusedTextView.setText(Float.toString(current.getUsed()));
+
         TextView fundSoughtTextView= (TextView)listItemView.findViewById(R.id.fundSoughtTextView);
         fundSoughtTextView.setText(Float.toString(current.getSought()));
 
