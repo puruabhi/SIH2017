@@ -61,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnLogin = (Button) findViewById(R.id.btn_login);
         toolbar=(Toolbar) findViewById(R.id.login_toolbar);
-
+        inputEmail.setText(null);
+        inputPassword.setText(null);
         setSupportActionBar(toolbar);
         setTitle(R.string.login_toolbar_title);
 
@@ -205,6 +206,12 @@ public class LoginActivity extends AppCompatActivity {
 
         }
         return result.toString();
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        inputEmail.setText(null);
+        inputPassword.setText(null);
     }
 }
 

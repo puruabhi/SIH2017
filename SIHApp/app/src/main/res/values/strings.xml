@@ -4,6 +4,7 @@
     <string name="close">Close</string>
 
     <!-- Navigation tabs -->
+    <string name="nav_announcement">Announcement</string>
     <string name="nav_home">Home</string>
     <string name="nav_meetings">Meetings</string>
     <string name="nav_funds">Funds</string>
