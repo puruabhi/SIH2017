@@ -37,10 +37,10 @@ public class FundsAdapter extends ArrayAdapter<Fund> {
         fundMonthTextView.setText(current.getMonth());
 
         TextView fundSoughtTextView= (TextView)listItemView.findViewById(R.id.fundSoughtTextView);
-        fundSoughtTextView.setText(Integer.toString(current.getSought()));
+        fundSoughtTextView.setText(Float.toString(current.getSought()));
 
         TextView fundReceivedTextView = (TextView)listItemView.findViewById(R.id.fundReceivedTextView);
-        fundReceivedTextView.setText(Integer.toString(current.getReceived()));
+        fundReceivedTextView.setText(Float.toString(current.getReceived()));
         return listItemView;
     }
 }
