@@ -4,7 +4,7 @@
     <string name="close">Close</string>
 
     <!-- Navigation tabs -->
-    <string name="nav_announcement">Announcement</string>
+    <string name="nav_announcement">Announcements</string>
     <string name="nav_home">Home</string>
     <string name="nav_meetings">Meetings</string>
     <string name="nav_funds">Funds</string>
@@ -63,5 +63,7 @@
     <string name="school_about">About School</string>
     <string name="fund_pop_title">Use of fund</string>
     <string name="task_detail">Task Details</string>
+    <string name="announcement">Announcement</string>
+    <string name="nav_head">Navigation Header</string>
 
 </resources>

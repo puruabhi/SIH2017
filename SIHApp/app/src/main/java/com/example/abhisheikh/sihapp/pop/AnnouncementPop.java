@@ -32,7 +32,7 @@ public class AnnouncementPop extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.homePopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(R.string.nav_announcement);
+        setTitle(R.string.announcement);
     }
 
     @Override
