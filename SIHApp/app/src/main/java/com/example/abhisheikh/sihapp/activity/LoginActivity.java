@@ -5,6 +5,7 @@ package com.example.abhisheikh.sihapp.activity;
  */
 
         import android.content.Intent;
+        import android.database.Cursor;
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.annotation.NonNull;
@@ -19,6 +20,8 @@ package com.example.abhisheikh.sihapp.activity;
         import android.widget.Toast;
 
         import com.example.abhisheikh.sihapp.R;
+        import com.example.abhisheikh.sihapp.database.DatabaseHandler;
+        import com.example.abhisheikh.sihapp.database.TableData;
         import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.Task;
         import com.google.firebase.auth.AuthResult;
@@ -56,40 +59,51 @@ public class LoginActivity extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        toolbar=(Toolbar) findViewById(R.id.login_toolbar);
-        inputEmail.setText(null);
-        inputPassword.setText(null);
-        setSupportActionBar(toolbar);
-        setTitle(R.string.login_toolbar_title);
+        DatabaseHandler dh = new DatabaseHandler(getBaseContext(), TableData.LoginStatus.DATABASE_NAME);
+        Cursor cr = dh.getLoginInfo(dh);
+        if (cr.moveToFirst()) {
+            nextActivity();
+        } else {
+            inputEmail = (EditText) findViewById(R.id.email);
+            inputPassword = (EditText) findViewById(R.id.password);
+            progressBar = (ProgressBar) findViewById(R.id.progressBar);
+            btnLogin = (Button) findViewById(R.id.btn_login);
+            toolbar = (Toolbar) findViewById(R.id.login_toolbar);
+            inputEmail.setText(null);
+            inputPassword.setText(null);
+            setSupportActionBar(toolbar);
+            setTitle(R.string.login_toolbar_title);
 
-        //Get Firebase auth instance
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                username = inputEmail.getText().toString();
-                password = inputPassword.getText().toString();
+            //Get Firebase auth instance
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    username = inputEmail.getText().toString();
+                    password = inputPassword.getText().toString();
 
-                if (TextUtils.isEmpty(username)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                    return;
+                    if (TextUtils.isEmpty(username)) {
+                        Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(password)) {
+                        Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    //authenticate user
+                    new SendRequest().execute();
                 }
-
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                progressBar.setVisibility(View.VISIBLE);
-
-                //authenticate user
-                new SendRequest().execute();
-            }
-        });
+            });
+        }
     }
 
+    public void nextActivity(){
+        Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -167,9 +181,15 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject baseObject=new JSONObject(result);
                 String status = baseObject.getString("status");
                 if(status.equals("1")){
-                    Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
+                    DatabaseHandler dh = new DatabaseHandler(getBaseContext(), TableData.LoginStatus.DATABASE_NAME);
+                    Cursor cr = dh.getLoginInfo(dh);
+                    if(!cr.moveToFirst()){
+                        dh.addLoginInfo(dh,status,"M101");
+                    }
+                    else{
+                        Log.d("Login Activity","Already logged in");
+                    }
+                    nextActivity();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Wrong username or password",Toast.LENGTH_SHORT).show();

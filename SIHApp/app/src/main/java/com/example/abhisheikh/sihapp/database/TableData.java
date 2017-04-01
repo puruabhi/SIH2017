@@ -1,4 +1,4 @@
-package com.example.abhisheikh.sihapp.other;
+package com.example.abhisheikh.sihapp.database;
 
 import android.provider.BaseColumns;
 
@@ -14,6 +14,8 @@ public class TableData {
     public static abstract class LoginStatus implements BaseColumns{
         public static final String TABLE_NAME = "login_status";
         public static final String STATUS = "status";
+        public static final String MEMBER_ID = "member_id";
+        public static final String DATABASE_NAME = "user_info";
     }
 
     public static abstract class AnnouncementsTable implements BaseColumns{
