@@ -23,18 +23,18 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link AnnouncementFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link AnnouncementFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class AnnouncementFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    TextView homeTextView;
-    ListView homeListView;
+    TextView announcementTextView;
+    ListView announcementListView;
 
-    public HomeFragment() {
+    public AnnouncementFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +42,11 @@ public class HomeFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment AnnouncementFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+    public static AnnouncementFragment newInstance() {
+        AnnouncementFragment fragment = new AnnouncementFragment();
         return fragment;
     }
 
@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_announcement, container, false);
 
         ArrayList<Announcement> list = new ArrayList<>();
         for(int i=0;i<20;i++){
@@ -68,17 +68,17 @@ public class HomeFragment extends Fragment {
 
         AnnouncementAdapter adapter = new AnnouncementAdapter(getActivity(),list);
 
-        homeListView = (ListView)view.findViewById(R.id.homeListView);
+        announcementListView = (ListView)view.findViewById(R.id.announcementListView);
 
-        homeListView.setAdapter(adapter);
+        announcementListView.setAdapter(adapter);
 
-        homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        announcementListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Announcement home = (Announcement)parent.getItemAtPosition(position);
+                Announcement announcement = (Announcement)parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), AnnouncementPop.class);
-                intent.putExtra("date",home.getDate());
-                intent.putExtra("description",home.getDescription());
+                intent.putExtra("date",announcement.getDate());
+                intent.putExtra("description",announcement.getDescription());
                 startActivity(intent);
             }
         });

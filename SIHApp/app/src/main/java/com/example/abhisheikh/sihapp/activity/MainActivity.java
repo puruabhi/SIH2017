@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.fragment.AnnouncementFragment;
 import com.example.abhisheikh.sihapp.fragment.ContactsFragment;
 import com.example.abhisheikh.sihapp.fragment.FundsFragment;
 import com.example.abhisheikh.sihapp.fragment.HomeFragment;
@@ -21,9 +22,11 @@ import com.example.abhisheikh.sihapp.fragment.LogoutFragment;
 import com.example.abhisheikh.sihapp.fragment.MeetingsFragment;
 import com.example.abhisheikh.sihapp.fragment.SchoolFragment;
 import com.example.abhisheikh.sihapp.fragment.TasksFragment;
+import com.example.abhisheikh.sihapp.other.Announcement;
 
 public class MainActivity extends AppCompatActivity implements
         HomeFragment.OnFragmentInteractionListener,
+        AnnouncementFragment.OnFragmentInteractionListener,
         MeetingsFragment.OnFragmentInteractionListener,
         FundsFragment.OnFragmentInteractionListener,
         TasksFragment.OnFragmentInteractionListener,
@@ -80,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements
         switch(menuItem.getItemId()) {
             case R.id.nav_home:
                 fragmentClass = HomeFragment.class;
+                break;
+            case R.id.nav_announcement:
+                fragmentClass = AnnouncementFragment.class;
                 break;
             case R.id.nav_meetings:
                 fragmentClass = MeetingsFragment.class;

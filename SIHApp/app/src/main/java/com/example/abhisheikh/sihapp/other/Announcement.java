@@ -4,12 +4,12 @@ package com.example.abhisheikh.sihapp.other;
  * Created by abhisheikh on 24/3/17.
  */
 
-public class Home {
+public class Announcement {
 
     private String date;
     private String description;
 
-    public Home(String date, String description) {
+    public Announcement(String date, String description) {
         this.date = date;
         this.description = description;
     }
