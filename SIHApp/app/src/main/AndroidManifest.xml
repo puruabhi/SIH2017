@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".addActivities.AddMeeting"></activity>
+        <activity android:name=".addActivities.AddMeeting" />
+        <activity android:name=".addActivities.AddFunds"></activity>
     </application>
 
 </manifest>

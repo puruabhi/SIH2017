@@ -14,10 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <!--<DatePicker-->
-                <!--android:id="@+id/dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"></DatePicker>-->
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
