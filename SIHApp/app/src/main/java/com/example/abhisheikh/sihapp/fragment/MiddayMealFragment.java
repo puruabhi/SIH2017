@@ -89,7 +89,7 @@ public class MiddayMealFragment extends Fragment {
 
         mealListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> paren    t, View view, int position, long id) {
                 Meal meal= (Meal)parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), MealPop.class);
                 intent.putExtra("week",meal.getWeek());

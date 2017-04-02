@@ -75,6 +75,9 @@ public class FundsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_funds, container, false);
 
         FloatingActionButton fab= (FloatingActionButton) view.findViewById(R.id.fab);
+        if(!memberStatus.equals("1")) {
+            fab.setVisibility(View.GONE);
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

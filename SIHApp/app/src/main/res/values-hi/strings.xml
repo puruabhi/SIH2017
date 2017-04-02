@@ -7,6 +7,7 @@
     <string name="nav_announcement">घोषणाएँ</string>
     <string name="nav_home">घर</string>
     <string name="nav_meetings">बैठकें</string>
+    <string name="nav_meal">भोजन</string>
     <string name="nav_funds">निधि</string>
     <string name="nav_tasks">कार्य</string>
     <string name="nav_school">विद्यालय</string>
@@ -70,6 +71,10 @@
     <string name="given_to">को दिया</string>
     <string name="deadline">समयसीमा</string>
     <string name="suggestions">सुझाव</string>
+<<<<<<< HEAD
     <string name="meal">मध्यान्ह भोजन</string>
+=======
+    <string name="click_image">कृपया छवि ले</string>
+>>>>>>> 3e49a4fa5ea5e6dd8faa4329b96080e904b4f5ee
 
 </resources>

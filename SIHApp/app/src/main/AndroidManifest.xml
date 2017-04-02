@@ -6,11 +6,12 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <uses-feature
         android:name="android.hardware.Camera2"
-        android:required="true"></uses-feature>
+        android:required="true" />
 
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -40,8 +41,8 @@
         <activity android:name=".addActivities.AddFunds" />
         <activity android:name=".addActivities.AddTasks" />
         <activity android:name=".pop.SuggestionPop" />
-        <activity android:name=".addActivities.AddSuggestion"></activity>
-
+        <activity android:name=".addActivities.AddSuggestion" />
+        <activity android:name=".pop.MealPop"></activity>
     </application>
 
 </manifest>

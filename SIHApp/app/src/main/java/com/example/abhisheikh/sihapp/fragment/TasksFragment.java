@@ -75,6 +75,9 @@ public class TasksFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
         FloatingActionButton fab= (FloatingActionButton) view.findViewById(R.id.fab);
+        if(!memberStatus.equals("1")) {
+            fab.setVisibility(View.GONE);
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

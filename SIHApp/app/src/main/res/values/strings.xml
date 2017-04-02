@@ -7,6 +7,7 @@
     <string name="nav_announcement">Announcements</string>
     <string name="nav_home">Home</string>
     <string name="nav_meetings">Meetings</string>
+    <string name="nav_meal">Meals</string>
     <string name="nav_funds">Funds</string>
     <string name="nav_tasks">Tasks</string>
     <string name="nav_school">School</string>
@@ -73,9 +74,13 @@
     <string name="deadline">Deadline</string>
     <string name="title_activity_member_login">Sign in</string>
     <string name="suggestions">Suggestions</string>
+<<<<<<< HEAD
     <string name="meal">Midday meal</string>
     <string name="meal_allocated">Allocated Fund</string>
     <string name="meal_used">Fund Used</string>
     <string name="number_of_children">Number of Children</string>
+=======
+    <string name="click_image">Click Image</string>
+>>>>>>> 3e49a4fa5ea5e6dd8faa4329b96080e904b4f5ee
 
 </resources>

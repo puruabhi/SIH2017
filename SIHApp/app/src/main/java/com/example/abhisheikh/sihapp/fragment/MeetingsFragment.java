@@ -73,14 +73,16 @@ public class MeetingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_meetings, container, false);
 
         FloatingActionButton fab= (FloatingActionButton) view.findViewById(R.id.fab);
+        if(!memberStatus.equals("1")) {
+            fab.setVisibility(View.GONE);
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(), AddMeeting.class);
+                Intent intent = new Intent(getContext(), AddMeeting.class);
                 startActivityForResult(intent, 1);
             }
         });
-
         list = new ArrayList<>();
         for(int i=0;i<20;i++){
             list.add(new Meeting("Date "+(i+1),"Development Plan"+(i+1),"Description "+(i+1), "Status "+(i+1)));

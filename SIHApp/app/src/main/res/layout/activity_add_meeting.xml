@@ -51,7 +51,7 @@
                 android:id="@+id/Imageprev"/>
             <Button
                 android:id="@+id/cpic"
-                android:text="Click Image"
+                android:text="@string/click_image"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
