@@ -41,7 +41,7 @@
     <string name="change_email">ई-मेल बदलें</string>
     <string name="title_activity_profile">फायरबेज</string>
     <string name="title_activity_login">साइन इन करें</string>
-    <string name="hint_username">उपयोगकर्ता नाम</string>
+    <string name="hint_username">सदस्य ID</string>
     <string name="hint_password">पासवर्ड</string>
     <string name="hint_name">पूरा नाम</string>
     <string name="btn_login">लॉग इन करें</string>

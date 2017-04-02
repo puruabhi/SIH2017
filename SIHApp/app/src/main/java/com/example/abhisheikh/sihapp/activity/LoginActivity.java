@@ -191,6 +191,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     nextActivity();
                 }
+                else if(status.equals("2")) {
+                    //To SMC member Home Activity
+                }
                 else{
                     Toast.makeText(getApplicationContext(),"Wrong username or password",Toast.LENGTH_SHORT).show();
                 }

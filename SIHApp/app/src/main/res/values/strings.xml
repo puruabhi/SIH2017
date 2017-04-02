@@ -34,14 +34,14 @@
     </string-array>
 
     <string name="login_toolbar_title">SIH App</string>
-    <string name="action_sign_in_short">Register</string>
+    <string name="action_sign_in_short">Member Sign In</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
     <string name="change_email">Change Email</string>
     <string name="title_activity_profile">Firebase</string>
     <string name="title_activity_login">Sign in</string>
-    <string name="hint_username">Username</string>
+    <string name="hint_username">Member ID</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>
@@ -71,5 +71,6 @@
     <string name="fund_sought">Sought </string>
     <string name="given_to">Given To</string>
     <string name="deadline">Deadline</string>
+    <string name="title_activity_member_login">Sign in</string>
 
 </resources>
