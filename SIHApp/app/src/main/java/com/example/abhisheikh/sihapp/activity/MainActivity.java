@@ -47,12 +47,16 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        memberStatus = getIntent().getStringExtra("status");
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout,new HomeFragment());
+        Fragment homeFragment = new HomeFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("status",memberStatus);
+        homeFragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.frameLayout,homeFragment);
         fragmentTransaction.commit();
         setTitle(R.string.nav_home);
         setContentView(R.layout.activity_main);
-        memberStatus = getIntent().getStringExtra("status");
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

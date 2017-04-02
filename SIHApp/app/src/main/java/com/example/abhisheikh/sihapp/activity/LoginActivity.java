@@ -63,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
         DatabaseHandler dh = new DatabaseHandler(getBaseContext(), TableData.LoginStatus.DATABASE_NAME);
         Cursor cr = dh.getLoginInfo(dh);
         if (cr.moveToFirst()) {
+            memberStatus = cr.getString(0);
+            Toast.makeText(this,memberStatus,Toast.LENGTH_SHORT).show();
             nextActivity();
         } else {
             inputEmail = (EditText) findViewById(R.id.email);
