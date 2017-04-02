@@ -42,6 +42,21 @@
                 android:hint="@string/meeting_status"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
+            <ImageView
+                android:src="@drawable/school"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:id="@+id/Imageprev"/>
+            <Button
+                android:id="@+id/cpic"
+                android:text="Click Image"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorAccent"/>
             <Button
                 android:id="@+id/addMeetingButton"
                 android:layout_width="wrap_content"
