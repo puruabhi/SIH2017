@@ -22,6 +22,10 @@
         <item android:id="@+id/nav_tasks"
             android:icon="@mipmap/tasks"
             android:title="@string/nav_tasks"/>
+
+        <item android:id="@+id/nav_meal"
+            android:icon="@mipmap/meal"
+            android:title="@string/meal"/>
     </group>
 
     <group android:id="@+id/group2" android:checkableBehavior="single">

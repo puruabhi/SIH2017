@@ -73,5 +73,9 @@
     <string name="deadline">Deadline</string>
     <string name="title_activity_member_login">Sign in</string>
     <string name="suggestions">Suggestions</string>
+    <string name="meal">Midday meal</string>
+    <string name="meal_allocated">Allocated Fund</string>
+    <string name="meal_used">Fund Used</string>
+    <string name="number_of_children">Number of Children</string>
 
 </resources>

@@ -77,29 +77,33 @@ public class LoginActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
             setTitle(R.string.login_toolbar_title);
 
-            //Get Firebase auth instance
-            btnLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    username = inputEmail.getText().toString();
-                    password = inputPassword.getText().toString();
-
-                    if (TextUtils.isEmpty(username)) {
-                        Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    if (TextUtils.isEmpty(password)) {
-                        Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    progressBar.setVisibility(View.VISIBLE);
-
-                    //authenticate user
-                    new SendRequest().execute();
-                }
-            });
+            setOnClickListeners();
         }
+    }
+
+    private void setOnClickListeners(){
+        //Get Firebase auth instance
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username = inputEmail.getText().toString();
+                password = inputPassword.getText().toString();
+
+                if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(getApplicationContext(), "Enter Member ID!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+
+                //authenticate user
+                new SendRequest().execute();
+            }
+        });
     }
 
     public void nextActivity(){
@@ -245,6 +249,7 @@ public class LoginActivity extends AppCompatActivity {
             inputEmail.setText(null);
             inputPassword.setText(null);
         }
+        setOnClickListeners();
     }
 }
 

@@ -72,7 +72,7 @@ public class SuggestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         memberStatus = getArguments().getString("status");
-        Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_suggestion, container, false);
 

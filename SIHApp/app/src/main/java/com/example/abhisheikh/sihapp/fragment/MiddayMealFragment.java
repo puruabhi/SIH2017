@@ -11,16 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.adapter.FundsAdapter;
-import com.example.abhisheikh.sihapp.adapter.MeetingsAdapter;
+import com.example.abhisheikh.sihapp.adapter.MealAdapter;
 import com.example.abhisheikh.sihapp.addActivities.AddFunds;
-import com.example.abhisheikh.sihapp.addActivities.AddMeeting;
 import com.example.abhisheikh.sihapp.other.Fund;
+import com.example.abhisheikh.sihapp.other.Meal;
 import com.example.abhisheikh.sihapp.other.Meeting;
-import com.example.abhisheikh.sihapp.pop.FundPop;
+import com.example.abhisheikh.sihapp.pop.MeetingsPop;
 
 import java.util.ArrayList;
 
@@ -29,33 +28,26 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FundsFragment.OnFragmentInteractionListener} interface
+ * {@link MiddayMealFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FundsFragment#newInstance} factory method to
+ * Use the {@link MiddayMealFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FundsFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
-    private ArrayList<Fund> funds;
-    private FundsAdapter adapter;
-    ListView fundsListView;
-    private String memberStatus;
+public class MiddayMealFragment extends Fragment {
 
-    public FundsFragment() {
+    private String memberStatus;
+    private OnFragmentInteractionListener mListener;
+    ArrayList<Meal> meals;
+    MealAdapter adapter;
+    ListView mealListView;
+
+    public MiddayMealFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FundsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FundsFragment newInstance(String param1, String param2) {
-        FundsFragment fragment = new FundsFragment();
+
+    public static MiddayMealFragment newInstance(String param1, String param2) {
+        MiddayMealFragment fragment = new MiddayMealFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -70,9 +62,8 @@ public class FundsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         memberStatus = getArguments().getString("status");
-        //Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_funds, container, false);
+        View view = inflater.inflate(R.layout.fragment_midday_meal, container, false);
 
         FloatingActionButton fab= (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -86,21 +77,24 @@ public class FundsFragment extends Fragment {
             fab.setVisibility(View.GONE);
         }
 
-        funds= new ArrayList<>();
-        for(int i=0;i<20;i++){
-            funds.add(new Fund("January",(float)1000*i,(float)750*i,(float)500*i, "useDetails "+i));
+        meals = new ArrayList<>();
+        for(int i=0;i<15;i++){
+            meals.add(new Meal(250*i,225*i, "Use Detail "+i,"Week "+i, i));
         }
 
-        adapter = new FundsAdapter(getActivity(),funds);
-        fundsListView = (ListView)view.findViewById(R.id.fundListView);
-        fundsListView.setAdapter(adapter);
+        adapter = new MealAdapter(getContext(),meals);
 
-        fundsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mealListView = (ListView)view.findViewById(R.id.mealListView);
+        mealListView.setAdapter(adapter);
+
+        mealListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Fund fund = (Fund)parent.getItemAtPosition(position);
-                Intent intent = new Intent(getContext(), FundPop.class);
-                intent.putExtra("use",fund.getUsed());
+                Meal meal= (Meal)parent.getItemAtPosition(position);
+                Intent intent = new Intent(getContext(), MealPop.class);
+                intent.putExtra("week",meal.getWeek());
+                intent.putExtra("studenr",""+meal.getChildren());
+                intent.putExtra("used",""+meal.getUsed());
                 startActivity(intent);
             }
         });
@@ -147,7 +141,7 @@ public class FundsFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    @Override
+    /*@Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1){
@@ -167,5 +161,5 @@ public class FundsFragment extends Fragment {
     private void refreshListView(){
         adapter = new FundsAdapter(getContext(),funds);
         fundsListView.setAdapter(adapter);
-    }
+    }*/
 }
