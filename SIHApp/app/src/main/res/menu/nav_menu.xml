@@ -29,6 +29,10 @@
             android:icon="@mipmap/school"
             android:title="@string/nav_school"/>
 
+        <item android:id="@+id/nav_suggestion"
+            android:icon="@mipmap/ic_speaker_notes_black_24dp"
+            android:title="@string/suggestions"/>
+
         <item android:id="@+id/nav_contacts"
             android:icon="@mipmap/contact"
             android:title="@string/nav_contacts"/>

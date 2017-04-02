@@ -21,6 +21,7 @@ import com.example.abhisheikh.sihapp.fragment.HomeFragment;
 import com.example.abhisheikh.sihapp.fragment.LogoutFragment;
 import com.example.abhisheikh.sihapp.fragment.MeetingsFragment;
 import com.example.abhisheikh.sihapp.fragment.SchoolFragment;
+import com.example.abhisheikh.sihapp.fragment.SuggestionFragment;
 import com.example.abhisheikh.sihapp.fragment.TasksFragment;
 import com.example.abhisheikh.sihapp.other.Announcement;
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements
         TasksFragment.OnFragmentInteractionListener,
         SchoolFragment.OnFragmentInteractionListener,
         ContactsFragment.OnFragmentInteractionListener,
+        SuggestionFragment.OnFragmentInteractionListener,
         LogoutFragment.OnFragmentInteractionListener{
 
     private DrawerLayout drawerLayout;
@@ -104,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.nav_logout:
                 fragmentClass = LogoutFragment.class;
+                break;
+            case R.id.nav_suggestion:
+                fragmentClass = SuggestionFragment.class;
                 break;
             default:
                 fragmentClass = HomeFragment.class;

@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.abhisheikh.sihapp.fragment.AnnouncementFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.abhisheikh.sihapp.fragment.SuggestionFragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,10 +13,10 @@
         >
 
         <TextView
-            android:id="@+id/announcementTextView"
+            android:id="@+id/suggestionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/home_fragment_announcement"
+            android:text="@string/suggestions"
             android:textSize="14dp"
             android:paddingRight="16dp"
             android:paddingLeft="16dp"
@@ -23,12 +24,21 @@
             />
 
         <ListView
-            android:id="@+id/announcementListView"
+            android:id="@+id/suggestionListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             ></ListView>
 
     </LinearLayout>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </FrameLayout>

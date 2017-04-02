@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.abhisheikh.sihapp.pop.AnnouncementPop">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/suggestionPopToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        />
+
+    <TextView
+        android:id="@+id/suggestionDatePopText"
+        android:layout_below="@id/suggestionPopToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Date"/>
+
+    <View
+        android:id="@+id/stLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@id/suggestionDatePopText"/>
+
+    <ScrollView
+        android:layout_below="@id/suggestionDatePopText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/suggestionDescriptionPopText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:paddingBottom="0dp"
+            android:textSize="14sp"/>
+    </ScrollView>
+
+</RelativeLayout>

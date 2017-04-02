@@ -31,9 +31,11 @@
         <activity android:name=".addActivities.AddMeeting" />
         <activity android:name=".addActivities.AddFunds" />
         <activity android:name=".addActivities.AddTasks" />
-        <activity
-            android:name=".MemberLoginActivity"
-            android:label="@string/title_activity_member_login"></activity>
+        <!-- <activity -->
+        <!-- android:name=".MemberLoginActivity" -->
+        <!-- android:label="@string/title_activity_member_login"></activity> -->
+        <activity android:name=".pop.SuggestionPop" />
+        <activity android:name=".addActivities.AddSuggestion"></activity>
     </application>
 
 </manifest>
