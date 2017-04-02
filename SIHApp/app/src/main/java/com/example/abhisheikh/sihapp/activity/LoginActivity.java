@@ -84,27 +84,29 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setOnClickListeners(){
         //Get Firebase auth instance
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                username = inputEmail.getText().toString();
-                password = inputPassword.getText().toString();
+        if(btnLogin!=null) {
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    username = inputEmail.getText().toString();
+                    password = inputPassword.getText().toString();
 
-                if (TextUtils.isEmpty(username)) {
-                    Toast.makeText(getApplicationContext(), "Enter Member ID!", Toast.LENGTH_SHORT).show();
-                    return;
+                    if (TextUtils.isEmpty(username)) {
+                        Toast.makeText(getApplicationContext(), "Enter Member ID!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(password)) {
+                        Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    //authenticate user
+                    new SendRequest().execute();
                 }
-
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                progressBar.setVisibility(View.VISIBLE);
-
-                //authenticate user
-                new SendRequest().execute();
-            }
-        });
+            });
+        }
     }
 
     public void nextActivity(){

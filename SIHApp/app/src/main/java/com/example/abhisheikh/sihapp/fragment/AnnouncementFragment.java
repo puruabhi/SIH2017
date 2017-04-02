@@ -1,8 +1,10 @@
 package com.example.abhisheikh.sihapp.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +20,17 @@ import com.example.abhisheikh.sihapp.adapter.AnnouncementAdapter;
 import com.example.abhisheikh.sihapp.other.Announcement;
 import com.example.abhisheikh.sihapp.pop.AnnouncementPop;
 
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -35,6 +48,7 @@ public class AnnouncementFragment extends Fragment {
     TextView announcementTextView;
     ListView announcementListView;
     private String memberStatus;
+    AnnouncementAdapter adapter;
 
     public AnnouncementFragment() {
         // Required empty public constructor
@@ -70,7 +84,7 @@ public class AnnouncementFragment extends Fragment {
             list.add(new Announcement("Date "+(i+1),"Description "+(i+1)));
         }
 
-        AnnouncementAdapter adapter = new AnnouncementAdapter(getActivity(),list);
+        adapter = new AnnouncementAdapter(getActivity(),list);
 
         announcementListView = (ListView)view.findViewById(R.id.announcementListView);
 
@@ -86,6 +100,11 @@ public class AnnouncementFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        String serverURL = "http://prabhupriya.in/jsonaboutschool.php";
+
+        // Create Object and call AsyncTask execute Method
+        new LongOperation().execute(serverURL);
 
         return view;
     }
@@ -127,5 +146,72 @@ public class AnnouncementFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private class LongOperation  extends AsyncTask<String, Void, Void> {
+
+        private final HttpClient Client = new DefaultHttpClient();
+        private String Content;
+        private String Error = null;
+        protected void onPreExecute() {
+            // NOTE: You can call UI Element here.
+
+            //UI Element
+        }
+
+        // Call after onPreExecute method
+        protected Void doInBackground(String... urls) {
+            try {
+
+                // Call long running operations here (perform background computation)
+                // NOTE: Don't call UI Element here.
+
+                // Server url call by GET method
+                HttpGet httpget = new HttpGet(urls[0]);
+                ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                Content = Client.execute(httpget, responseHandler);
+
+            } catch (ClientProtocolException e) {
+                Error = e.getMessage();
+                cancel(true);
+            } catch (IOException e) {
+                Error = e.getMessage();
+                cancel(true);
+            }
+
+            return null;
+        }
+
+        protected void onPostExecute(Void unused) {
+            // NOTE: You can call UI Element here.
+
+            // Close progress dialog
+
+                jsonParse(Content);
+
+        }
+
+        protected void jsonParse(String content){
+
+            try {
+                JSONArray baseObject = new JSONArray(content);
+                //JSONObject aboutSchooljson = baseObject.getJSONObject("aboutschool");
+                //String name = aboutSchooljson.getString("School");
+                //String about = aboutSchooljson.getString("About");
+                ArrayList<Announcement> list1= new ArrayList<>();
+                for(int i=0;i<baseObject.length();i++) {
+                    JSONObject jsonObject = baseObject.getJSONObject(i);
+                    String id = jsonObject.getString("id");
+                    String ann = jsonObject.getString("Announcements");
+                    list1.add(new Announcement("id " +id,ann));
+                }
+                announcementListView.setAdapter(null);
+                adapter = new AnnouncementAdapter(getContext(),list1);
+                announcementListView.setAdapter(adapter);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

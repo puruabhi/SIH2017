@@ -20,6 +20,7 @@ import com.example.abhisheikh.sihapp.fragment.FundsFragment;
 import com.example.abhisheikh.sihapp.fragment.HomeFragment;
 import com.example.abhisheikh.sihapp.fragment.LogoutFragment;
 import com.example.abhisheikh.sihapp.fragment.MeetingsFragment;
+import com.example.abhisheikh.sihapp.fragment.MiddayMealFragment;
 import com.example.abhisheikh.sihapp.fragment.SchoolFragment;
 import com.example.abhisheikh.sihapp.fragment.SuggestionFragment;
 import com.example.abhisheikh.sihapp.fragment.TasksFragment;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements
         SchoolFragment.OnFragmentInteractionListener,
         ContactsFragment.OnFragmentInteractionListener,
         SuggestionFragment.OnFragmentInteractionListener,
+        MiddayMealFragment.OnFragmentInteractionListener,
         LogoutFragment.OnFragmentInteractionListener{
 
     private DrawerLayout drawerLayout;
@@ -115,6 +117,9 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.nav_suggestion:
                 fragmentClass = SuggestionFragment.class;
+                break;
+            case R.id.nav_meal:
+                fragmentClass = MiddayMealFragment.class;
                 break;
             default:
                 fragmentClass = HomeFragment.class;

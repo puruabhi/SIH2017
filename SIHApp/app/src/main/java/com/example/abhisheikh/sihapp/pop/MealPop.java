@@ -33,7 +33,7 @@ public class MealPop extends AppCompatActivity {
         studentPopText.setText(student);
         usePopText.setText(used);
 
-        toolbar = (Toolbar)findViewById(R.id.fundPopToolbar);
+        toolbar = (Toolbar)findViewById(R.id.mealPopToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.nav_meal);

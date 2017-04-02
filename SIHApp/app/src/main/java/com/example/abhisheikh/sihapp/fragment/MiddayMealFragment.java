@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.adapter.FundsAdapter;
@@ -19,6 +20,7 @@ import com.example.abhisheikh.sihapp.addActivities.AddFunds;
 import com.example.abhisheikh.sihapp.other.Fund;
 import com.example.abhisheikh.sihapp.other.Meal;
 import com.example.abhisheikh.sihapp.other.Meeting;
+import com.example.abhisheikh.sihapp.pop.MealPop;
 import com.example.abhisheikh.sihapp.pop.MeetingsPop;
 
 import java.util.ArrayList;
@@ -46,7 +48,7 @@ public class MiddayMealFragment extends Fragment {
     }
 
 
-    public static MiddayMealFragment newInstance(String param1, String param2) {
+    public static MiddayMealFragment newInstance() {
         MiddayMealFragment fragment = new MiddayMealFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -62,6 +64,7 @@ public class MiddayMealFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         memberStatus = getArguments().getString("status");
+        Toast.makeText(getContext(),memberStatus,Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_midday_meal, container, false);
 
@@ -89,12 +92,12 @@ public class MiddayMealFragment extends Fragment {
 
         mealListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> paren    t, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Meal meal= (Meal)parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), MealPop.class);
                 intent.putExtra("week",meal.getWeek());
-                intent.putExtra("studenr",""+meal.getChildren());
-                intent.putExtra("used",""+meal.getUsed());
+                intent.putExtra("student",""+meal.getChildren());
+                intent.putExtra("used",meal.getUseDetail());
                 startActivity(intent);
             }
         });
