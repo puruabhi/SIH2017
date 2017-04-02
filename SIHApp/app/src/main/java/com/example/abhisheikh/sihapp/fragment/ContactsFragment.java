@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.adapter.ContactsAdapter;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class ContactsFragment extends Fragment {
+    private String memberStatus;
 
     private OnFragmentInteractionListener mListener;
 
@@ -55,6 +57,8 @@ public class ContactsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        memberStatus = getArguments().getString("status");
+        Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
 

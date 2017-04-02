@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.activity.MainActivity;
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     ImageButton announcementImageButton,meetingsImageButton,fundsImageButton;
     ImageButton taskImageButton, schoolImageButton;
+    private String memberStatus;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -64,6 +66,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        memberStatus = getArguments().getString("status");
+        Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         getActivity().setTitle(R.string.nav_home);
@@ -84,6 +88,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AnnouncementFragment newFragment = new AnnouncementFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("status",memberStatus);
+                newFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frameLayout,newFragment);
                 fragmentTransaction.addToBackStack(null);
@@ -96,6 +103,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MeetingsFragment newFragment = new MeetingsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("status",memberStatus);
+                newFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frameLayout,newFragment);
                 fragmentTransaction.addToBackStack(null);
@@ -108,6 +118,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TasksFragment newFragment = new TasksFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("status",memberStatus);
+                newFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frameLayout,newFragment);
                 fragmentTransaction.addToBackStack(null);
@@ -120,6 +133,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FundsFragment newFragment = new FundsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("status",memberStatus);
+                newFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frameLayout,newFragment);
                 fragmentTransaction.addToBackStack(null);
@@ -132,6 +148,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 SchoolFragment newFragment = new SchoolFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("status",memberStatus);
+                newFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frameLayout,newFragment);
                 fragmentTransaction.addToBackStack(null);

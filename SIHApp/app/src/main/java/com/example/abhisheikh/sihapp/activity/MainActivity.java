@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements
     private Toolbar toolbar;
 
     private NavigationView navigationView;
+    String memberStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements
         fragmentTransaction.commit();
         setTitle(R.string.nav_home);
         setContentView(R.layout.activity_main);
+        memberStatus = getIntent().getStringExtra("status");
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -116,6 +118,9 @@ public class MainActivity extends AppCompatActivity implements
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();
+            Bundle bundle = new Bundle();
+            bundle.putString("status",memberStatus);
+            fragment.setArguments(bundle);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -146,5 +151,9 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onFragmentInteraction(Uri uri){
         //Can be left empty
+    }
+
+    public String getMemberStatus(){
+        return memberStatus;
     }
 }

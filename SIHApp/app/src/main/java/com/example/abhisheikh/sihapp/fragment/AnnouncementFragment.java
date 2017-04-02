@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.adapter.AnnouncementAdapter;
@@ -33,6 +34,7 @@ public class AnnouncementFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     TextView announcementTextView;
     ListView announcementListView;
+    private String memberStatus;
 
     public AnnouncementFragment() {
         // Required empty public constructor
@@ -58,6 +60,8 @@ public class AnnouncementFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        memberStatus = getArguments().getString("status");
+        Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_announcement, container, false);
 

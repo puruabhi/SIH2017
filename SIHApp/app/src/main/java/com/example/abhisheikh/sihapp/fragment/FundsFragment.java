@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.abhisheikh.sihapp.R;
 import com.example.abhisheikh.sihapp.adapter.FundsAdapter;
@@ -38,6 +39,7 @@ public class FundsFragment extends Fragment {
     private ArrayList<Fund> funds;
     private FundsAdapter adapter;
     ListView fundsListView;
+    private String memberStatus;
 
     public FundsFragment() {
         // Required empty public constructor
@@ -67,6 +69,8 @@ public class FundsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        memberStatus = getArguments().getString("status");
+        Toast.makeText(getContext(), memberStatus, Toast.LENGTH_SHORT).show();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_funds, container, false);
 

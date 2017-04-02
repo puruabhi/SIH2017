@@ -1,5 +1,6 @@
 package com.example.abhisheikh.sihapp.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.abhisheikh.sihapp.R;
+import com.example.abhisheikh.sihapp.activity.MainActivity;
 import com.example.abhisheikh.sihapp.adapter.MeetingsAdapter;
 import com.example.abhisheikh.sihapp.addActivities.AddMeeting;
 import com.example.abhisheikh.sihapp.other.Meeting;
@@ -36,6 +38,7 @@ public class MeetingsFragment extends Fragment {
     private ListView meetingsListView;
     private ArrayList<Meeting> list;
     private MeetingsAdapter adapter;
+    private String memberStatus;
 
     public MeetingsFragment() {
         // Required empty public constructor

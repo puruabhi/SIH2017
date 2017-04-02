@@ -39,6 +39,7 @@ public class TasksFragment extends Fragment {
     private ArrayList<Task> tasks;
     private TaskAdapter adapter;
     private ListView taskListView;
+    private String memberStatus;
 
     public TasksFragment() {
         // Required empty public constructor
@@ -68,6 +69,7 @@ public class TasksFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        memberStatus = getArguments().getString("status");
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
         FloatingActionButton fab= (FloatingActionButton) view.findViewById(R.id.fab);

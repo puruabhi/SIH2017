@@ -4,6 +4,7 @@ package com.example.abhisheikh.sihapp.activity;
  * Created by kmlkant3497 on 28/3/17.
  */
 
+        import android.app.ProgressDialog;
         import android.content.Intent;
         import android.database.Cursor;
         import android.os.AsyncTask;
@@ -48,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Button btnLogin;
     private Toolbar toolbar;
-    String username,password;
+    String username,password,memberStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
     public void nextActivity(){
         Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        intent.putExtra("status",memberStatus);
         startActivity(intent);
     }
     @Override
@@ -115,7 +117,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public class SendRequest extends AsyncTask<String, Void, String> {
 
-        protected void onPreExecute(){}
+        private ProgressDialog Dialog = new ProgressDialog(LoginActivity.this);
+
+        protected void onPreExecute(){
+            Dialog.setMessage("Logging in..");
+            Dialog.show();
+        }
 
         protected String doInBackground(String... arg0) {
 
@@ -177,10 +184,12 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
+            Dialog.dismiss();
             try {
                 JSONObject baseObject=new JSONObject(result);
                 String status = baseObject.getString("status");
-                if(status.equals("1")){
+                memberStatus = status;
+                if(status.equals("1")||status.equals("2")){
                     DatabaseHandler dh = new DatabaseHandler(getBaseContext(), TableData.LoginStatus.DATABASE_NAME);
                     Cursor cr = dh.getLoginInfo(dh);
                     if(!cr.moveToFirst()){
@@ -190,9 +199,6 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("Login Activity","Already logged in");
                     }
                     nextActivity();
-                }
-                else if(status.equals("2")) {
-                    //To SMC member Home Activity
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Wrong username or password",Toast.LENGTH_SHORT).show();
@@ -233,8 +239,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        inputEmail.setText(null);
-        inputPassword.setText(null);
+        if(inputEmail!=null && inputPassword!=null) {
+            inputEmail.setText(null);
+            inputPassword.setText(null);
+        }
     }
 }
 
