@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
         Cursor cr = dh.getLoginInfo(dh);
         if (cr.moveToFirst()) {
             memberStatus = cr.getString(0);
-            memberStatus="2";
             Toast.makeText(this,memberStatus,Toast.LENGTH_SHORT).show();
             nextActivity();
         } else {
