@@ -70,5 +70,6 @@
     <string name="given_to">को दिया</string>
     <string name="deadline">समयसीमा</string>
     <string name="suggestions">सुझाव</string>
+    <string name="click_image">कृपया छवि ले</string>
 
 </resources>

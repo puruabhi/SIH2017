@@ -73,5 +73,6 @@
     <string name="deadline">Deadline</string>
     <string name="title_activity_member_login">Sign in</string>
     <string name="suggestions">Suggestions</string>
+    <string name="click_image">Click Image</string>
 
 </resources>
